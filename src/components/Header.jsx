@@ -25,20 +25,20 @@ export default function Header({
         }`}
       >
         {/* Ligne unique : Menu hamburger, Textes + Logo + Textes, Boutons */}
-        <div className="py-6 px-6">
+        <div className="py-4 md:py-6 px-2 md:px-4 lg:px-6">
           <div className="container mx-auto flex items-center justify-between">
             {/* Menu Hamburger + Icône maison */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1 md:gap-2 lg:gap-3">
               {/* Menu Hamburger */}
               <button
                 onClick={toggleMenu}
-                className={`p-2 rounded transition ${
+                className={`p-1 md:p-2 rounded transition ${
                   whiteHeader ? "hover:bg-base-200" : "hover:bg-white/10"
                 }`}
                 aria-label="Menu"
               >
                 <svg
-                  className={`w-10 h-10 ${
+                  className={`w-6 h-6 md:w-10 md:h-10 ${
                     whiteHeader ? "icon-gradient" : "text-white"
                   }`}
                   fill="none"
@@ -57,13 +57,13 @@ export default function Header({
               {/* Icône maison - retour à l'accueil */}
               <Link
                 to="/"
-                className={`p-2 rounded transition ${
+                className={`p-1 md:p-2 rounded transition ${
                   whiteHeader ? "hover:bg-base-200" : "hover:bg-white/10"
                 }`}
                 aria-label="Retour à l'accueil"
               >
                 <svg
-                  className={`w-10 h-10 ${
+                  className={`w-6 h-6 md:w-10 md:h-10 ${
                     whiteHeader ? "icon-gradient" : "text-white"
                   }`}
                   fill="none"
@@ -81,8 +81,8 @@ export default function Header({
             </div>
 
             {/* Centre : Moulin + Logo + Traiteur */}
-            <div className="flex items-center gap-4 absolute left-1/2 transform -translate-x-1/2">
-              <div className={`hidden md:flex flex-col items-end text-right`}>
+            <div className="flex items-center gap-2 md:gap-4 absolute left-1/2 transform -translate-x-1/2">
+              <div className={`hidden lg:flex flex-col items-end text-right`}>
                 <span
                   className={`font-cormorant-sc text-xl md:text-2xl whitespace-nowrap ${
                     whiteHeader ? "text-base-content" : "text-white"
@@ -102,16 +102,16 @@ export default function Header({
               </div>
               <Link to="/" className="flex items-center">
                 {whiteHeader ? (
-                  <div className="bg-white rounded-full w-20 h-20 shadow-lg flex items-center justify-center overflow-hidden border-2 border-base-300">
-                    <Logo className="w-16 h-16 object-contain" />
+                  <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 shadow-lg flex items-center justify-center overflow-hidden border-2 border-base-300">
+                    <Logo className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain" />
                   </div>
                 ) : (
-                  <div className="bg-white rounded-full w-20 h-20 shadow-lg flex items-center justify-center overflow-hidden">
-                    <Logo className="w-16 h-16 object-contain" />
+                  <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 shadow-lg flex items-center justify-center overflow-hidden">
+                    <Logo className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain" />
                   </div>
                 )}
               </Link>
-              <div className={`hidden md:flex flex-col items-start text-left`}>
+              <div className={`hidden lg:flex flex-col items-start text-left`}>
                 <h1
                   className={`font-cormorant-sc text-xl md:text-2xl ${
                     whiteHeader ? "text-base-content" : "text-white"
@@ -124,30 +124,46 @@ export default function Header({
             </div>
 
             {/* Boutons à droite */}
-            <div className="flex items-center gap-3">
-              {/* Bouton Nous contacter */}
+            <div className="flex items-center gap-1 md:gap-2 lg:gap-3">
+              {/* Bouton/Icône Nous contacter */}
               <button
                 onClick={openModal}
-                className={`px-6 py-2.5 rounded font-inter font-medium hover:scale-105 hover:shadow-lg transition-all duration-300 ${
+                className={`p-2 md:px-6 md:py-2.5 rounded font-inter font-medium hover:scale-105 hover:shadow-lg transition-all duration-300 ${
                   whiteHeader
                     ? "gradient-primary text-white"
                     : "bg-white text-[#9B1227]"
                 }`}
+                aria-label="Nous contacter"
               >
-                Nous contacter
+                {/* Icône enveloppe sur mobile */}
+                <svg
+                  className="w-6 h-6 md:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                {/* Texte sur desktop */}
+                <span className="hidden md:inline">Nous contacter</span>
               </button>
 
               {/* Toggle Dark Mode */}
               <button
                 onClick={toggleDarkMode}
-                className={`p-2 rounded transition ${
+                className={`p-1 md:p-2 rounded transition ${
                   whiteHeader ? "hover:bg-base-200" : "hover:bg-white/10"
                 }`}
                 aria-label="Toggle dark mode"
               >
                 {darkMode ? (
                   <svg
-                    className={`w-10 h-10 ${
+                    className={`w-6 h-6 md:w-10 md:h-10 ${
                       whiteHeader ? "icon-gradient" : "text-white"
                     }`}
                     fill="currentColor"
@@ -157,7 +173,7 @@ export default function Header({
                   </svg>
                 ) : (
                   <svg
-                    className={`w-10 h-10 ${
+                    className={`w-6 h-6 md:w-10 md:h-10 ${
                       whiteHeader ? "icon-gradient" : "text-white"
                     }`}
                     fill="currentColor"

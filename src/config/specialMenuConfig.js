@@ -16,7 +16,7 @@
 
 export const specialMenuConfig = {
   // Activer/désactiver la bannière
-  enabled: true, // Passer à true pour activer
+  enabled: false, // Passer à true pour activer
 
   // Choix de disposition (1 ou 2)
   layout: 1,

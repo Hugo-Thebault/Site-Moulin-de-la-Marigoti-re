@@ -1,77 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import croixAuxLiardsImg from "../assets/images/croix-au-liard.webp";
-import lorangerieImg from "../assets/images/lorangerie.webp";
-import jonqueretImg from "../assets/images/jonqueret.jpg";
-import petiteHayeImg from "../assets/images/petite-haye.jpg";
-import chateauCarsixImg from "../assets/images/chateau-de-carsix.jpg";
-import chateauChapelleImg from "../assets/images/chateau-de-la-chapelle.webp";
-import milleEmotionsImg from "../assets/images/mille-et-une-emotion.jpg";
-import paulaImg from "../assets/images/paula.jpg";
-
-const partners = [
-  {
-    id: 1,
-    name: "Loca Reception",
-    image:
-      "https://via.placeholder.com/400x300/9B1227/FFFFFF?text=Loca+Reception",
-    url: null,
-  },
-  {
-    id: 2,
-    name: "Château de La Chapelle",
-    image: chateauChapelleImg,
-    url: "https://chateaudelachapelle.com/",
-  },
-  {
-    id: 3,
-    name: "Domaine La Croix aux Liards",
-    image: croixAuxLiardsImg,
-    url: "https://www.lacroixauxliards.com/",
-  },
-  {
-    id: 4,
-    name: "L'Orangerie",
-    image: lorangerieImg,
-    url: "https://www.mariages.net/chateau-mariage/lorangerie-chateau-de-beaumesnil--e107144",
-  },
-  {
-    id: 5,
-    name: "Salle des Jonquerets de Livet",
-    image: jonqueretImg,
-    url: "https://www.mesnil-en-ouche.fr/notre-territoire/location-des-salles-des-fetes/jonquerets-de-livet/",
-  },
-  {
-    id: 6,
-    name: "Domaine de la Petite Haye",
-    image: petiteHayeImg,
-    url: "https://www.petite-haye.com/",
-  },
-  {
-    id: 7,
-    name: "Château de Carsix",
-    image: chateauCarsixImg,
-    url: "https://chateaudecarsix.com/",
-  },
-  {
-    id: 8,
-    name: "Mille et une émotions",
-    image: milleEmotionsImg,
-    url: "https://www.facebook.com/milleetuneemotions",
-  },
-  {
-    id: 9,
-    name: "Paula Événements",
-    image: paulaImg,
-    url: "https://paula-evenements.com/",
-  },
-];
+import { partnersCarousel } from "../data/partnersData";
 
 export default function Partners() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [itemsPerView, setItemsPerView] = useState(3);
   const containerRef = useRef(null);
+
+  const partners = partnersCarousel;
 
   // Dupliquer les partenaires : ajouter à la fin ET au début pour la navigation bidirectionnelle
   const extendedPartners = [
@@ -187,7 +124,7 @@ export default function Partners() {
                         className="w-full h-64 object-cover"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                      <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex items-end">
                         <p className="text-white font-inter text-xl p-4 w-full text-center">
                           {partner.name}
                         </p>
@@ -201,7 +138,7 @@ export default function Partners() {
                         className="w-full h-64 object-cover"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                      <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex items-end">
                         <p className="text-white font-inter text-xl p-4 w-full text-center">
                           {partner.name}
                         </p>

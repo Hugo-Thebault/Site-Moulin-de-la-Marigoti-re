@@ -1,19 +1,12 @@
 import { Link } from "react-router-dom";
-
-const menus = [
-  { id: "reception", title: "Réception", link: "/menus/reception" },
-  { id: "brunch", title: "Brunch", link: "/menus/brunch" },
-  { id: "dinatoire", title: "Dinatoire", link: "/menus/dinatoire" },
-  { id: "buffet-froid", title: "Buffet froid", link: "/menus/buffet-froid" },
-  { id: "menu-39", title: "Notre menu à 39€", link: "/menus/menu-39" },
-];
+import { menuNavigationItems } from "../data/menusData";
 
 export default function MenuNavigation({ currentMenu }) {
   return (
     <nav className="gradient-primary py-1 px-6 sticky top-0 z-40 shadow-md">
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-center gap-3">
-          {menus.map((menu) => (
+          {menuNavigationItems.map((menu) => (
             <Link
               key={menu.id}
               to={menu.link}

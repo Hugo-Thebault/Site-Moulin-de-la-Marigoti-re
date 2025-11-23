@@ -1,8 +1,7 @@
-import MenuNavigation from "../components/MenuNavigation";
-import photoPlat from "../assets/images/photo-plat.jpg";
-import photoPlat2 from "../assets/images/photo-plat-2.webp";
-import photoPlat3 from "../assets/images/photo-plat-3.webp";
-import photoPlat4 from "../assets/images/photo-plat-4.webp";
+import MenuNavigation from "@/components/MenuNavigation";
+import { commonImages } from "@/data/imagesData";
+
+const { photoPlat, photoPlat2, photoPlat3, photoPlat4 } = commonImages;
 
 const dishImages = [
   photoPlat,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { specialMenuConfig } from "../config/specialMenuConfig";
 import ImageGalleryModal from "./ImageGalleryModal";
 
@@ -6,6 +6,10 @@ export default function SpecialMenuBanner() {
   const { layout, images } = specialMenuConfig;
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   // Helper pour construire le chemin complet de l'image
   const getImagePath = (imageName) => {
@@ -36,6 +40,38 @@ export default function SpecialMenuBanner() {
           { src: getImagePath(images.portrait3), alt: "Menu spécial 3" },
         ];
 
+  // Autoplay carousel mobile (3 secondes)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [galleryImages.length]);
+
+  // Gestion du swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) {
+      // Swipe left
+      setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+    }
+
+    if (touchStartX.current - touchEndX.current < -50) {
+      // Swipe right
+      setCurrentSlide(
+        (prev) => (prev - 1 + galleryImages.length) % galleryImages.length
+      );
+    }
+  };
+
   const openGallery = (index) => {
     setCurrentImageIndex(index);
     setIsGalleryOpen(true);
@@ -56,6 +92,55 @@ export default function SpecialMenuBanner() {
     }
   };
 
+  // Version mobile : carousel avec 1 image
+  const MobileCarousel = () => (
+    <div className="md:hidden">
+      <div
+        ref={sliderRef}
+        className="relative overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div
+          className="flex transition-transform duration-300 ease-out"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
+          {galleryImages.map((image, index) => (
+            <div
+              key={index}
+              className="w-full shrink-0 px-4"
+              onClick={() => openGallery(index)}
+            >
+              <div className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Points de pagination */}
+      <div className="flex justify-center gap-2 mt-4">
+        {galleryImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              currentSlide === index ? "bg-white w-6" : "bg-white/50"
+            }`}
+            aria-label={`Aller à l'image ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
   if (layout === 1) {
     // Disposition 1 : 3 portraits + 2 paysages
     return (
@@ -65,77 +150,56 @@ export default function SpecialMenuBanner() {
             {/* Titre et description */}
             <div className="text-center mb-8">
               <h2
-                className="text-4xl md:text-5xl font-cormorant-sc text-white mb-4"
+                className="text-3xl md:text-4xl lg:text-5xl font-cormorant-sc text-white mb-4"
                 style={{ fontVariant: "small-caps" }}
               >
                 Menu spécial pour les fêtes
               </h2>
-              <p className="text-lg md:text-xl font-inter text-white max-w-3xl mx-auto">
+              <p className="text-base md:text-lg lg:text-xl font-inter text-white max-w-3xl mx-auto">
                 Pour les fêtes le chef vous propose trois menus différents et
                 une carte à venir chercher le jour des fêtes.
               </p>
             </div>
 
-            {/* Ligne 1 : 3 portraits */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 max-w-5xl mx-auto">
-              <div
-                className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => openGallery(0)}
-              >
-                <img
-                  src={galleryImages[0].src}
-                  alt={galleryImages[0].alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div
-                className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => openGallery(1)}
-              >
-                <img
-                  src={galleryImages[1].src}
-                  alt={galleryImages[1].alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div
-                className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => openGallery(2)}
-              >
-                <img
-                  src={galleryImages[2].src}
-                  alt={galleryImages[2].alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            {/* Mobile : Carousel */}
+            <MobileCarousel />
 
-            {/* Ligne 2 : 2 paysages centrés */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div
-                className="aspect-[1.414/1] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => openGallery(3)}
-              >
-                <img
-                  src={galleryImages[3].src}
-                  alt={galleryImages[3].alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            {/* Desktop : Grid */}
+            <div className="hidden md:block">
+              {/* Ligne 1 : 3 portraits */}
+              <div className="grid grid-cols-3 gap-6 mb-6 max-w-5xl mx-auto">
+                {galleryImages.slice(0, 3).map((image, index) => (
+                  <div
+                    key={index}
+                    className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    onClick={() => openGallery(index)}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
-              <div
-                className="aspect-[1.414/1] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-                onClick={() => openGallery(4)}
-              >
-                <img
-                  src={galleryImages[4].src}
-                  alt={galleryImages[4].alt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+
+              {/* Ligne 2 : 2 paysages centrés */}
+              <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {galleryImages.slice(3, 5).map((image, index) => (
+                  <div
+                    key={index + 3}
+                    className="aspect-[1.414/1] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    onClick={() => openGallery(index + 3)}
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -161,51 +225,36 @@ export default function SpecialMenuBanner() {
           {/* Titre et description */}
           <div className="text-center mb-8">
             <h2
-              className="text-4xl md:text-5xl font-cormorant-sc text-white mb-4"
+              className="text-3xl md:text-4xl lg:text-5xl font-cormorant-sc text-white mb-4"
               style={{ fontVariant: "small-caps" }}
             >
               Menu spécial pour les fêtes
             </h2>
-            <p className="text-lg md:text-xl font-inter text-white max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl font-inter text-white max-w-3xl mx-auto">
               Pour les fêtes, le chef vous propose trois menus différents et une
               carte à venir chercher le jour même.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div
-              className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => openGallery(0)}
-            >
-              <img
-                src={galleryImages[0].src}
-                alt={galleryImages[0].alt}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div
-              className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => openGallery(1)}
-            >
-              <img
-                src={galleryImages[1].src}
-                alt={galleryImages[1].alt}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div
-              className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => openGallery(2)}
-            >
-              <img
-                src={galleryImages[2].src}
-                alt={galleryImages[2].alt}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+          {/* Mobile : Carousel */}
+          <MobileCarousel />
+
+          {/* Desktop : Grid */}
+          <div className="hidden md:grid grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="aspect-[1/1.414] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 cursor-pointer"
+                onClick={() => openGallery(index)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

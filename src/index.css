@@ -1,8 +1,80 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@400;600;700&family=Cormorant+Infant:wght@400;600;700&family=Inter:wght@400;500;600&display=swap");
+/* Import local fonts - Cormorant SC */
+@font-face {
+  font-family: "Cormorant SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/Cormorant-SC-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant SC";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/Cormorant-SC-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/Cormorant-SC-700.woff2") format("woff2");
+}
+
+/* Import local fonts - Cormorant Infant */
+@font-face {
+  font-family: "Cormorant Infant";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/Cormorant-Infant-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Infant";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/Cormorant-Infant-600.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Infant";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./assets/fonts/Cormorant-Infant-700.woff2") format("woff2");
+}
+
+/* Import local fonts - Inter */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/Inter-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./assets/fonts/Inter-500.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./assets/fonts/Inter-600.woff2") format("woff2");
+}
 
 /* Thème personnalisé Light */
 @plugin "daisyui/theme" {

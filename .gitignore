@@ -39,3 +39,13 @@ yarn-error.log*
 
 # OS files
 Thumbs.db
+
+# Temporary image optimization folders
+src/assets/images-backup/
+src/assets/images-optimized/
+
+# Keep only optimized images
+src/assets/images/*.jpg
+src/assets/images/*.jpeg
+src/assets/images/*.png
+!src/assets/images/*.webp
