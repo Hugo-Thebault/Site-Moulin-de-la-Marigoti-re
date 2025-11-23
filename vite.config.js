@@ -11,6 +11,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Copier les fichiers du dossier public
+  publicDir: "public",
   build: {
     // Optimisations pour la production
     rollupOptions: {
@@ -18,19 +20,16 @@ export default defineConfig({
         manualChunks: {
           // Séparer React et React-DOM dans un chunk
           "react-vendor": ["react", "react-dom", "react-router-dom"],
+          helmet: ["react-helmet-async"],
         },
       },
     },
-    // Compression
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true, // Supprimer les console.log en production
-        drop_debugger: true,
-      },
-    },
+    // Utiliser esbuild pour la minification (plus rapide que terser)
+    minify: "esbuild",
+    cssMinify: true,
+    cssCodeSplit: true,
     // Taille des chunks
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 500,
   },
   // Optimisation des dépendances
   optimizeDeps: {

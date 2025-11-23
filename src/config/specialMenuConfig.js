@@ -24,12 +24,12 @@ export const specialMenuConfig = {
   // Chemins des images (relatifs à /src/assets/images/special-menus/)
   images: {
     // 3 images portrait (obligatoires pour les deux layouts)
-    portrait1: "MenuFete2025(1).png",
-    portrait2: "MenuFete2025(2).png",
-    portrait3: "MenuFete2025(3).png",
+    portrait1: "MenuFete2025(1).webp",
+    portrait2: "MenuFete2025(2).webp",
+    portrait3: "MenuFete2025(3).webp",
 
     // 2 images paysage (uniquement pour layout 1)
-    landscape1: "CarteFete2025(1).png",
-    landscape2: "CarteFete2025(2).png",
+    landscape1: "CarteFete2025(1).webp",
+    landscape2: "CarteFete2025(2).webp",
   },
 };

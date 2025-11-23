@@ -7,40 +7,62 @@ import { useState, useEffect } from "react";
  * @param {boolean} infinite - Active la boucle infinie
  * @returns {object} État et fonctions du carousel
  */
-export function useCarousel(itemsCount, autoplayDelay = 0, infinite = false) {
+export function useCarousel(itemsCount, autoplayDelay = 0, infinite = true) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoplayEnabled, setAutoplayEnabled] = useState(autoplayDelay > 0);
 
-  // Autoplay
+  // Autoplay avec boucle infinie
   useEffect(() => {
-    if (!autoplayEnabled || autoplayDelay === 0) return;
+    if (!autoplayEnabled || autoplayDelay === 0 || itemsCount === 0) return;
 
     const interval = setInterval(() => {
-      handleNext();
+      setCurrentIndex((prev) => {
+        if (infinite) {
+          // Boucle infinie : retour au début après la fin
+          return (prev + 1) % itemsCount;
+        } else {
+          // Sans boucle : arrêt à la fin
+          return prev < itemsCount - 1 ? prev + 1 : prev;
+        }
+      });
     }, autoplayDelay);
 
     return () => clearInterval(interval);
-  }, [currentIndex, autoplayEnabled, autoplayDelay]);
+  }, [currentIndex, autoplayEnabled, autoplayDelay, itemsCount, infinite]);
 
   const handleNext = () => {
-    if (infinite || currentIndex < itemsCount - 1) {
-      setCurrentIndex((prev) => (prev + 1) % itemsCount);
-    }
+    setCurrentIndex((prev) => {
+      if (infinite) {
+        return (prev + 1) % itemsCount;
+      } else {
+        return prev < itemsCount - 1 ? prev + 1 : prev;
+      }
+    });
   };
 
   const handlePrevious = () => {
-    if (infinite || currentIndex > 0) {
-      setCurrentIndex((prev) => (prev - 1 + itemsCount) % itemsCount);
-    }
+    setCurrentIndex((prev) => {
+      if (infinite) {
+        return (prev - 1 + itemsCount) % itemsCount;
+      } else {
+        return prev > 0 ? prev - 1 : prev;
+      }
+    });
   };
 
   const goToIndex = (index) => {
-    setAutoplayEnabled(false);
-    setCurrentIndex(index);
+    if (index >= 0 && index < itemsCount) {
+      setAutoplayEnabled(false);
+      setCurrentIndex(index);
+    }
   };
 
   const disableAutoplay = () => {
     setAutoplayEnabled(false);
+  };
+
+  const enableAutoplay = () => {
+    setAutoplayEnabled(true);
   };
 
   return {
@@ -49,6 +71,7 @@ export function useCarousel(itemsCount, autoplayDelay = 0, infinite = false) {
     handlePrevious,
     goToIndex,
     disableAutoplay,
+    enableAutoplay,
     autoplayEnabled,
   };
 }

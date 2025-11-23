@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { menusData } from "../data/menusData";
-import { useCarousel } from "../hooks/useCarousel";
-import { useFadeTransition } from "../hooks/useFadeTransition";
+import { menusData } from "@/data/menusData";
+import { useCarousel } from "@/hooks/useCarousel";
+import { useFadeTransition } from "@/hooks/useFadeTransition";
 
 export default function MenuSection() {
   const {
@@ -10,7 +10,7 @@ export default function MenuSection() {
     handlePrevious,
     goToIndex,
     disableAutoplay,
-  } = useCarousel(menusData.length, 5000);
+  } = useCarousel(menusData.length, 5000, true);
 
   const { fadeOut, triggerFade } = useFadeTransition(150);
 
@@ -32,7 +32,7 @@ export default function MenuSection() {
   const currentMenu = menusData[currentIndex];
 
   return (
-    <section className="py-8 md:py-12 bg-base-100">
+    <section className="py-8 md:py-12 bg-base-100 overflow-hidden">
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
         {/* PARTIE GAUCHE - Bloc rouge avec titre et photo, collé à gauche */}
         <div className="gradient-primary py-6 md:py-8 px-6 md:px-8 lg:rounded-r-3xl w-full lg:w-auto flex flex-col items-center lg:items-start">
@@ -44,7 +44,7 @@ export default function MenuSection() {
           </h2>
 
           {/* Photo du menu avec transition simple */}
-          <div className="relative overflow-hidden rounded-lg shadow-2xl aspect-video w-full max-w-xl">
+          <div className="relative overflow-hidden rounded-lg shadow-2xl aspect-[16/9] w-full max-w-xl">
             <img
               src={currentMenu.image}
               alt={currentMenu.title}
@@ -56,8 +56,8 @@ export default function MenuSection() {
           </div>
         </div>
 
-        {/* PARTIE DROITE - Contenu texte */}
-        <div className="bg-base-100 py-6 md:py-8 px-6 md:px-36 lg:px-0 flex flex-col flex-1">
+        {/* PARTIE DROITE - Contenu texte avec padding pour éviter l'overflow */}
+        <div className="bg-base-100 py-6 md:py-8 px-6 md:px-8 lg:px-12 flex flex-col flex-1">
           {/* Titre avec sous-titre optionnel */}
           <div
             className={`mb-8 md:mb-16 transition-opacity duration-150 ${
@@ -83,8 +83,8 @@ export default function MenuSection() {
             {currentMenu.description}
           </p>
 
-          {/* Bouton */}
-          <div className="text-right mt-6">
+          {/* Bouton avec container qui empêche l'overflow */}
+          <div className="text-right mt-6 pr-4">
             <Link
               to={currentMenu.link}
               className="inline-block gradient-primary text-white px-8 py-3 rounded font-inter font-medium hover:scale-105 hover:shadow-lg transition-all duration-300"

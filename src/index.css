@@ -218,3 +218,19 @@ h2,
 h3 {
   font-family: var(--font-cormorant-sc);
 }
+
+/* Masquer la scrollbar sur mobile pour un effet plus propre */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari et Chrome */
+}
+
+/* Scroll smooth pour une meilleure expérience tactile */
+.overflow-x-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scrolling */
+}

@@ -14,19 +14,25 @@
     "convert-to-webp": "node scripts/convert-to-webp.js",
     "check-images": "node scripts/check-images.js",
     "resize-images": "node scripts/resize-large-images.js",
-    "cleanup": "node scripts/cleanup.js"
+    "cleanup": "node scripts/cleanup.js",
+    "lighthouse": "node scripts/lighthouse-test.js",
+    "lighthouse:preview": "VITE_PORT=4173 node scripts/lighthouse-test.js"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.20.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",
     "@vitejs/plugin-react": "^4.2.0",
+    "chrome-launcher": "^1.2.1",
     "daisyui": "^5.0.0",
+    "lighthouse": "^11.7.1",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.0.0",
+    "terser": "^5.44.1",
     "vite": "^5.0.0"
   }
 }

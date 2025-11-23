@@ -8,42 +8,41 @@ import { commonImages } from "../data/imagesData";
 export default function Menu39({ openModal }) {
   const { photoPlat } = commonImages;
 
-  // Données des amuse-bouches
-  const amuseBouches = [
-    { name: "Soufflé d'églefin au cresson" },
-    { name: "Vol au vent andouille de Vire, pomme" },
-    { name: "Blinis quenelle de rillette de poisson" },
-    { name: "Gougère escargot en persillade" },
-    { name: "Nem croustillant confit de canard" },
-    { name: "Croustille de truite de mer au curcuma" },
-    { name: "Burger boeuf confit, Pont-l'Evêque" },
-    { name: "Rognon de lapin, sauce moutarde violette" },
-    { name: "Feuilleté oignon, chutney boudin blanc" },
-    { name: "Cuiller saumon Gravlax, crème coriandre" },
-    { name: "Cake boudin noir, crème de sésame" },
-    { name: "Paupiette de cabillaud, crème de pesto" },
-    { name: "Acra de morue, épices douces" },
-    { name: "Duo de volaille et chorizo" },
-    { name: "Sablé parmesan, pavot, beurre de betterave", vegetarian: true },
-    { name: "Tartelette courgette, curry", vegetarian: true },
-  ];
-
+  // Données des entrées
   const entrees = [
-    { name: "Terrine maison et ses pickles" },
-    { name: "Velouté de légumes du moment" },
-    { name: "Salade composée de saison", vegetarian: true },
+    {
+      name: "Tarte fine andouille de Vire et pomme, crème de Camembert et son mesclun",
+    },
+    { name: "Mousseline de cabillaud, coulis de crustacé, semoule de brocoli" },
+    { name: "Brochette de saumon poêlée au sésame, caviar d'aubergine" },
+    {
+      name: "Vol au vent champignons et escargots en persillade, crème de cresson",
+    },
+    {
+      name: "Terrine gourmande « tout canard », aiguillette, foie gras, magret, chutney fruits de saison",
+    },
   ];
 
   const plats = [
-    { name: "Volaille fermière rôtie, jus au cidre" },
-    { name: "Pavé de saumon, beurre blanc citronné" },
-    { name: "Gratin de légumes du marché", vegetarian: true },
+    { name: "Pavé de lieu jaune, étuve de légumes, beurre blanc" },
+    { name: "Dorade poêlée et son risotto, fine ratatouille" },
+    { name: "Cuisse de canard confite par nos soins, petits grecs" },
+    { name: "Paleron de bœuf cuit longuement, fine purée de céleri" },
+    {
+      name: "Filet mignon de porc, tarte au boudin noir, pomme Dauphine « Maison »",
+    },
+    { name: "Caille désossée et farcie, étuve de choux verts et rouges" },
+    { name: "Suprême de pintade rôti, pomme grenaille et champignons" },
   ];
 
   const desserts = [
-    { name: "Tarte du jour" },
-    { name: "Mousse au chocolat maison" },
-    { name: "Panna cotta aux fruits rouges" },
+    { name: "Tarte Tatin et sa crème fraîche" },
+    { name: "Croustillant chocolat, praliné, noisette" },
+    { name: "Paris-Brest, crumble et amandes caramélisées" },
+    { name: "Nougat glacé, carpaccio d'ananas" },
+    { name: "Tarte fine aux pommes, glace caramel, beurre salé" },
+    { name: "Brownie chocolat, crème tendre" },
+    { name: "Assiette de trois desserts en dégustation" },
   ];
 
   return (
@@ -69,20 +68,26 @@ export default function Menu39({ openModal }) {
         </div>
 
         {/* Sections du menu */}
-        <MenuSection
-          title="8 Amuse-bouches au choix"
-          items={amuseBouches}
-          className="mb-8"
-        />
-
         <MenuSection title="Entrée au choix" items={entrees} className="mb-8" />
 
         <MenuSection
           title="Plat au choix"
           items={plats}
-          note="Accompagnements : Légumes de saison et pommes de terre rôties"
+          note="Toutes nos garnitures et sauces peuvent être changées selon vos envies et par rapport à la saison"
           className="mb-8"
         />
+
+        {/* Mesclun et Fromage */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <Card>
+            <SectionTitle color="primary" centered={false} className="mb-6">
+              Mesclun et Fromage
+            </SectionTitle>
+            <div className="font-inter text-base md:text-lg text-base-content">
+              <p>Salade du moment et trois fromages affinés</p>
+            </div>
+          </Card>
+        </div>
 
         <MenuSection
           title="Dessert au choix"
@@ -104,8 +109,16 @@ export default function Menu39({ openModal }) {
                 <strong>Minimum :</strong> 10 personnes
               </p>
               <p>
+                <strong>Formule :</strong> Entrée + Plat + Mesclun & Fromage +
+                Dessert
+              </p>
+              <p>
                 <strong>Boissons :</strong> Non incluses (supplément sur
                 demande)
+              </p>
+              <p>
+                <strong>Option :</strong> Des amuse-bouches du menu réception
+                peuvent être ajoutés selon vos envies (supplément)
               </p>
               <p className="text-sm italic text-base-content/70 mt-4 pt-4 border-t border-base-300">
                 Notre menu à 39€ offre un excellent rapport qualité-prix sans

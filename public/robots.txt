@@ -1,0 +1,18 @@
+# robots.txt pour Moulin de la Marigotière - Traiteur Thiberville
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://votre-domaine.fr/sitemap.xml
+
+# Bloquer les dossiers techniques
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Autoriser les ressources importantes
+Allow: /src/assets/images/*.webp
+Allow: /src/assets/images/*.jpg
+Allow: /src/assets/fonts/*.woff2

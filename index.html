@@ -4,7 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/gif" href="/src/assets/images/Logo.gif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moulin de la Marigotière</title>
+
+    <!-- Preload des polices critiques -->
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Cormorant-SC-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Inter-400.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Meta SEO de base -->
+    <meta
+      name="description"
+      content="Traiteur événementiel à Thiberville. François Duperrey, maître restaurateur, pour vos mariages, réceptions, séminaires. Cuisine gastronomique avec produits locaux."
+    />
+    <meta
+      name="keywords"
+      content="traiteur, Thiberville, mariage, réception, François Duperrey, maître restaurateur, Eure, Normandie"
+    />
+    <meta name="author" content="François Duperrey - Traiteur de Thiberville" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Moulin de la Marigotière - Traiteur Thiberville"
+    />
+    <meta
+      property="og:description"
+      content="Traiteur événementiel à Thiberville. François Duperrey, maître restaurateur."
+    />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- PWA Manifest - Commenté temporairement si problème -->
+    <!-- <link rel="manifest" href="/manifest.json" /> -->
+    <meta name="theme-color" content="#9B1227" />
+
+    <!-- Preload de l'image LCP (hero/logo) -->
+    <link
+      rel="preload"
+      fetchpriority="high"
+      as="image"
+      href="/src/assets/images/Logo.gif"
+      type="image/gif"
+    />
+
+    <title>Moulin de la Marigotière - Traiteur Thiberville</title>
   </head>
   <body>
     <div id="root"></div>
