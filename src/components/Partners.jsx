@@ -22,7 +22,8 @@ export default function Partners() {
 
   useEffect(() => {
     const handleResize = () => {
-      const newItemsPerView = window.innerWidth < 768 ? 1 : 3;
+      const newItemsPerView =
+        window.innerWidth < 768 ? 1 : window.innerWidth < 1536 ? 3 : 5;
       if (newItemsPerView !== itemsPerView) {
         setItemsPerView(newItemsPerView);
         setRealIndex(newItemsPerView);
@@ -76,7 +77,7 @@ export default function Partners() {
 
   return (
     <section className="py-16 px-6 bg-base-100">
-      <div className="container mx-auto">
+      <div className="w-full">
         <h2
           className="text-4xl md:text-5xl font-cormorant-sc text-center mb-6 text-base-content"
           style={{ fontVariant: "small-caps" }}
@@ -89,7 +90,7 @@ export default function Partners() {
           que pour les produits.
         </p>
 
-        <div className="relative max-w-6xl mx-auto mb-8">
+        <div className="relative mb-8 w-full md:w-[85%] mx-auto overflow-x-hidden">
           {/* Slider container */}
           <div className="overflow-hidden" ref={containerRef}>
             <div
@@ -108,8 +109,12 @@ export default function Partners() {
                 <div
                   key={`${partner.id}-${index}`}
                   className={`${
-                    itemsPerView === 1 ? "w-full" : "w-1/3"
-                  } shrink-0 px-4`}
+                    itemsPerView === 1
+                      ? "w-full"
+                      : itemsPerView === 5
+                        ? "w-1/5"
+                        : "w-1/3"
+                  } shrink-0 ${itemsPerView === 5 ? "px-2" : "px-4"}`}
                 >
                   {partner.url ? (
                     <a
@@ -153,7 +158,7 @@ export default function Partners() {
           {/* Navigation arrows */}
           <button
             onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
             aria-label="Previous"
           >
             <svg
@@ -173,7 +178,7 @@ export default function Partners() {
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
             aria-label="Next"
           >
             <svg

@@ -44,7 +44,11 @@ function PartnersComponent() {
   const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.1 });
   const partners = partnersCarousel;
   const itemsPerView =
-    typeof window !== "undefined" && window.innerWidth < 768 ? 1 : 3;
+    typeof window !== "undefined" && window.innerWidth < 768
+      ? 1
+      : window.innerWidth < 1536
+        ? 3
+        : 5;
 
   const { currentIndex, handleNext, handlePrevious } = useCarousel(
     partners.length,
@@ -61,7 +65,7 @@ function PartnersComponent() {
 
   return (
     <section ref={ref} className="py-16 px-6 bg-base-100">
-      <div className="container mx-auto">
+      <div className="w-full">
         <h2
           className="text-4xl md:text-5xl font-cormorant-sc text-center mb-6 text-base-content"
           style={{ fontVariant: "small-caps" }}
@@ -74,7 +78,7 @@ function PartnersComponent() {
           que pour les produits.
         </p>
 
-        <div className="relative max-w-6xl mx-auto mb-8">
+        <div className="relative mb-8 w-full md:w-[85%] mx-auto overflow-x-hidden">
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -88,8 +92,12 @@ function PartnersComponent() {
                 <div
                   key={`${partner.id}-${index}`}
                   className={`${
-                    itemsPerView === 1 ? "w-full" : "w-1/3"
-                  } shrink-0 px-4`}
+                    itemsPerView === 1
+                      ? "w-full"
+                      : itemsPerView === 5
+                        ? "w-1/5"
+                        : "w-1/3"
+                  } shrink-0 ${itemsPerView === 5 ? "px-2" : "px-4"}`}
                 >
                   <PartnerCard partner={partner} />
                 </div>
@@ -100,7 +108,7 @@ function PartnersComponent() {
           {/* Navigation arrows */}
           <button
             onClick={handlePrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
             aria-label="Previous"
           >
             <svg
@@ -120,7 +128,7 @@ function PartnersComponent() {
 
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#9B1227] border-2 border-[#9B1227] hover:scale-110 transition-transform duration-300 shadow-lg"
             aria-label="Next"
           >
             <svg

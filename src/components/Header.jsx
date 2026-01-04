@@ -26,7 +26,7 @@ export default function Header({
       >
         {/* Ligne unique : Menu hamburger, Textes + Logo + Textes, Boutons */}
         <div className="py-4 md:py-6 px-2 md:px-4 lg:px-6">
-          <div className="container mx-auto flex items-center justify-between">
+          <div className="relative flex items-center justify-between w-full">
             {/* Menu Hamburger + Icône maison */}
             <div className="flex items-center gap-1 md:gap-2 lg:gap-3">
               {/* Menu Hamburger */}

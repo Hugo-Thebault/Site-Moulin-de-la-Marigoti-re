@@ -4,6 +4,7 @@ import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 import MenuSection from "../components/menu/MenuSection";
 import { commonImages } from "../data/imagesData";
+import entree3 from "@/assets/images/Entree3.jpeg";
 
 export default function Menu39({ openModal }) {
   const { photoPlat } = commonImages;
@@ -52,7 +53,7 @@ export default function Menu39({ openModal }) {
       {/* Photo hero */}
       <div className="w-full h-96 overflow-hidden">
         <img
-          src={photoPlat}
+          src={entree3}
           alt="Menu à 39€"
           className="w-full h-full object-cover"
         />

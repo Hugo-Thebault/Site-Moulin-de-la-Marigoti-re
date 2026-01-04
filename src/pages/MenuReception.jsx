@@ -4,6 +4,7 @@ import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 import { commonImages } from "@/data/imagesData";
 import SEO from "../components/SEO";
+import buffet4 from "@/assets/images/Buffet4.optimized.webp";
 
 const { photoPlat } = commonImages;
 
@@ -20,7 +21,7 @@ export default function MenuReception({ openModal }) {
 
         <div className="w-full h-96 overflow-hidden">
           <img
-            src={photoPlat}
+            src={buffet4}
             alt="Réception"
             className="w-full h-full object-cover"
           />
