@@ -1,5 +1,6 @@
 import MenuNavigation from "@/components/MenuNavigation";
 import { commonImages } from "@/data/imagesData";
+import SEO from "@/components/SEO";
 
 const { photoPlat, photoPlat2, photoPlat3, photoPlat4 } = commonImages;
 
@@ -14,8 +15,14 @@ const dishImages = [
 
 export default function MenuDinatoire({ openModal }) {
   return (
-    <main className="bg-base-100">
-      <MenuNavigation currentMenu="dinatoire" />
+    <>
+      <SEO
+        title="Cocktail Dinatoire"
+        description="Cocktail dinatoire à Thiberville : bouchées raffinées, verrines et pièces apéritives pour vos réceptions et événements. Service traiteur en Normandie."
+        keywords="cocktail dinatoire, apéritif, traiteur, Thiberville, réception, Eure, Normandie"
+      />
+      <main className="bg-base-100">
+        <MenuNavigation currentMenu="dinatoire" />
 
       <div className="w-full h-96 overflow-hidden">
         <img
@@ -85,6 +92,7 @@ export default function MenuDinatoire({ openModal }) {
           </button>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

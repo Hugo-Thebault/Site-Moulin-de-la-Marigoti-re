@@ -10,6 +10,8 @@ import { useModal } from "./hooks/useModal";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ContactModal from "./components/ContactModal";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import CookieBanner from "./components/CookieBanner";
 
 // Lazy loading des pages
 const Home = lazy(() => import("./pages/Home"));
@@ -52,6 +54,8 @@ function AppContent() {
 
   return (
     <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
+      <GoogleAnalytics />
+      <CookieBanner />
       <Header
         toggleDarkMode={toggleDarkMode}
         darkMode={darkMode}

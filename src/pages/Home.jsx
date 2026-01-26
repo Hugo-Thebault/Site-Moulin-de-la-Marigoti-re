@@ -12,7 +12,7 @@ export default function Home({ openModal }) {
     <>
       <SEO
         title="Moulin de la Marigotière - Traiteur événementiel Thiberville"
-        description="Traiteur à Thiberville (27). François Duperrey, maître restaurateur, pour vos mariages, anniversaires, séminaires. Cuisine gastronomique avec produits locaux et de saison."
+        description="Traiteur événementiel à Thiberville (Eure) : mariages, réceptions, anniversaires, séminaires. Cuisine de saison, produits locaux. Devis sur mesure."
       />
       <main>
         {/* Bannière menus spéciaux - Activée/désactivée via config */}

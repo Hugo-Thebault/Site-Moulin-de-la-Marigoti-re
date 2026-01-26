@@ -5,6 +5,7 @@ import Button from "../components/ui/Button";
 import MenuSection from "../components/menu/MenuSection";
 import { commonImages } from "../data/imagesData";
 import entree3 from "@/assets/images/Entree3.jpeg";
+import SEO from "../components/SEO";
 
 export default function Menu39({ openModal }) {
   const { photoPlat } = commonImages;
@@ -47,8 +48,14 @@ export default function Menu39({ openModal }) {
   ];
 
   return (
-    <main className="bg-base-100">
-      <MenuNavigation currentMenu="menu-39" />
+    <>
+      <SEO
+        title="Menu à 39€"
+        description="Menu traiteur à 39€ par personne (dès 10 personnes) : entrée, plat, mesclun & fromages, dessert. Réalisé avec des produits frais et de saison."
+        keywords="menu 39€, traiteur, Thiberville, menu réception, Eure, Normandie"
+      />
+      <main className="bg-base-100">
+        <MenuNavigation currentMenu="menu-39" />
 
       {/* Photo hero */}
       <div className="w-full h-96 overflow-hidden">
@@ -138,6 +145,7 @@ export default function Menu39({ openModal }) {
           </Button>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

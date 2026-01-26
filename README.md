@@ -109,6 +109,20 @@ npm run download-fonts
 npm run clean-fonts
 ```
 
+## 📈 Google Analytics (GA4) & cookies
+
+Le tracking **GA4** est optionnel et **désactivé par défaut tant que l'utilisateur n'a pas accepté** les cookies (bandeau RGPD).
+
+1) Copier `.env.example` en `.env.local`
+2) Renseigner :
+
+```bash
+VITE_SITE_URL=https://votre-domaine.fr
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+Le site enverra automatiquement des `page_view` à chaque changement de route (SPA).
+
 ## 📝 Gestion des menus spéciaux
 
 Pour activer/désactiver les menus spéciaux temporaires :

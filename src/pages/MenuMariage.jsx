@@ -2,6 +2,7 @@ import photoPlat from "../assets/images/photo-plat.jpg";
 import photoPlat2 from "../assets/images/photo-plat-2.webp";
 import photoPlat3 from "../assets/images/photo-plat-3.webp";
 import photoPlat4 from "../assets/images/photo-plat-4.webp";
+import SEO from "../components/SEO";
 
 const dishImages = [
   photoPlat,
@@ -14,15 +15,21 @@ const dishImages = [
 
 export default function MenuMariage({ openModal }) {
   return (
-    <main className="bg-base-100">
-      {/* Hero image */}
-      <div className="w-full h-96 overflow-hidden">
-        <img
-          src={photoPlat}
-          alt="Menu Mariage"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <>
+      <SEO
+        title="Menu Mariage"
+        description="Traiteur mariage à Thiberville : menus personnalisés et cuisine de saison pour une réception inoubliable. Produits locaux et service sur mesure."
+        keywords="menu mariage, traiteur, Thiberville, réception, Eure, Normandie"
+      />
+      <main className="bg-base-100">
+        {/* Hero image */}
+        <div className="w-full h-96 overflow-hidden">
+          <img
+            src={photoPlat}
+            alt="Menu Mariage"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
       <div className="container mx-auto px-6 py-16">
         {/* Title */}
@@ -120,6 +127,7 @@ export default function MenuMariage({ openModal }) {
           </button>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

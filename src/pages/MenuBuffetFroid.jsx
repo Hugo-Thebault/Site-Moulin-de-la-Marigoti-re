@@ -1,5 +1,6 @@
 import MenuNavigation from "@/components/MenuNavigation";
 import { commonImages } from "@/data/imagesData";
+import SEO from "@/components/SEO";
 
 const { photoPlat, photoPlat2, photoPlat3, photoPlat4 } = commonImages;
 
@@ -14,8 +15,14 @@ const dishImages = [
 
 export default function MenuBuffetFroid({ openModal }) {
   return (
-    <main className="bg-base-100">
-      <MenuNavigation currentMenu="buffet-froid" />
+    <>
+      <SEO
+        title="Buffet Froid"
+        description="Buffet froid traiteur à Thiberville : salades, terrines, charcuteries, fromages et desserts pour vos réceptions estivales et cocktails."
+        keywords="buffet froid, traiteur, Thiberville, réception, cocktail, Eure, Normandie"
+      />
+      <main className="bg-base-100">
+        <MenuNavigation currentMenu="buffet-froid" />
 
       <div className="w-full h-96 overflow-hidden">
         <img
@@ -87,6 +94,7 @@ export default function MenuBuffetFroid({ openModal }) {
           </button>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

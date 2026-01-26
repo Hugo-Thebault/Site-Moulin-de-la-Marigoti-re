@@ -2,6 +2,7 @@ import photoPlat from "../assets/images/photo-plat.jpg";
 import photoPlat2 from "../assets/images/photo-plat-2.webp";
 import photoPlat3 from "../assets/images/photo-plat-3.webp";
 import photoPlat4 from "../assets/images/photo-plat-4.webp";
+import SEO from "../components/SEO";
 
 const dishImages = [
   photoPlat3,
@@ -14,14 +15,20 @@ const dishImages = [
 
 export default function MenuCocktail({ openModal }) {
   return (
-    <main className="bg-base-100">
-      <div className="w-full h-96 overflow-hidden">
-        <img
-          src={photoPlat}
-          alt="Cocktail"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <>
+      <SEO
+        title="Cocktail"
+        description="Cocktail et apéritif dinatoire à Thiberville : pièces salées et sucrées pour vos réceptions, mariages et événements. Traiteur en Normandie."
+        keywords="cocktail, apéritif, traiteur, Thiberville, réception, Eure"
+      />
+      <main className="bg-base-100">
+        <div className="w-full h-96 overflow-hidden">
+          <img
+            src={photoPlat}
+            alt="Cocktail"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
       <div className="container mx-auto px-6 py-16">
         <h1 className="text-4xl md:text-6xl font-cormorant-sc text-center mb-12 text-base-content">
@@ -83,6 +90,7 @@ export default function MenuCocktail({ openModal }) {
           </button>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }

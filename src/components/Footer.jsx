@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { resetCookieConsent } from "@/hooks/useCookieConsent";
 
 export default function Footer() {
   return (
@@ -8,12 +9,21 @@ export default function Footer() {
           © {new Date().getFullYear()} Traiteur de Thiberville - François
           Duperrey. Tous droits réservés.
         </p>
-        <Link
-          to="/mentions-legales"
-          className="inline-block mt-4 font-inter text-sm hover:text-gray-300 transition-colors underline"
-        >
-          Mentions légales
-        </Link>
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <Link
+            to="/mentions-legales"
+            className="font-inter text-sm hover:text-gray-300 transition-colors underline"
+          >
+            Mentions légales
+          </Link>
+          <button
+            type="button"
+            onClick={resetCookieConsent}
+            className="font-inter text-sm hover:text-gray-300 transition-colors underline"
+          >
+            Gestion des cookies
+          </button>
+        </div>
       </div>
     </footer>
   );

@@ -2,11 +2,16 @@ import MenuNavigation from "@/components/MenuNavigation";
 import SectionTitle from "../components/ui/SectionTitle";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
-import { commonImages } from "@/data/imagesData";
 import SEO from "../components/SEO";
 import buffet4 from "@/assets/images/Buffet4.optimized.webp";
 
-const { photoPlat } = commonImages;
+function PricePill({ children }) {
+  return (
+    <span className="inline-flex items-center rounded-full bg-[#9B1227]/10 px-3 py-1 text-sm font-semibold text-[#9B1227]">
+      {children}
+    </span>
+  );
+}
 
 export default function MenuReception({ openModal }) {
   return (
@@ -19,38 +24,82 @@ export default function MenuReception({ openModal }) {
       <main className="bg-base-100">
         <MenuNavigation currentMenu="reception" />
 
-        <div className="w-full h-96 overflow-hidden">
+        {/* Hero */}
+        <section className="relative w-full h-[420px] md:h-[520px] overflow-hidden">
           <img
             src={buffet4}
-            alt="Réception"
-            className="w-full h-full object-cover"
+            alt="Buffet et réception"
+            className="absolute inset-0 w-full h-full object-cover"
           />
-        </div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/35 to-black/15" />
 
-        <div className="container mx-auto px-6 py-16">
-          <h1 className="text-4xl md:text-6xl font-cormorant-sc text-center mb-4 text-base-content">
-            Réception
-          </h1>
-          <p className="text-2xl md:text-3xl font-cormorant-sc text-center mb-12 text-base-content/70">
-            (mariage/anniversaire)
-          </p>
+          <div className="relative h-full container mx-auto px-6 flex items-end">
+            <div className="w-full max-w-4xl pb-10 md:pb-14">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm font-semibold text-white ring-1 ring-white/20">
+                  Mariage
+                </span>
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm font-semibold text-white ring-1 ring-white/20">
+                  Anniversaire
+                </span>
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm font-semibold text-white ring-1 ring-white/20">
+                  Réception
+                </span>
+              </div>
 
-          <div className="max-w-3xl mx-auto mb-16 text-center">
-            <p className="text-lg md:text-xl font-inter leading-relaxed text-base-content mb-6">
-              Faites de votre réception un moment inoubliable avec nos menus
-              raffinés et personnalisés. Notre maître restaurateur François
-              Duperrey met tout son savoir-faire à votre service pour créer une
-              expérience culinaire qui marquera les esprits de vos invités.
-            </p>
+              <h1 className="text-4xl md:text-6xl font-cormorant-sc text-white leading-tight">
+                Menu Réception
+              </h1>
+              <p className="mt-4 text-base md:text-lg font-inter text-white/90 leading-relaxed">
+                Faites de votre réception un moment inoubliable avec une cuisine
+                raffinée, des produits de saison et un devis sur mesure.
+              </p>
+
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <Button onClick={openModal} size="lg">
+                  Demandez votre devis
+                </Button>
+                <a
+                  href="#formules"
+                  className="btn btn-outline btn-lg border-white/60 text-white hover:bg-white/10 hover:border-white"
+                >
+                  Voir les formules
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="container mx-auto px-6 py-14 md:py-16" id="formules">
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <div className="grid gap-4 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-2">
+                  <p className="text-base md:text-lg font-inter leading-relaxed text-base-content">
+                    Notre carte Réception vous laisse composer un menu complet :
+                    pièces apéritives, entrées, sorbets, plats, fromages et desserts.
+                    Nous adaptons les propositions selon la saison et vos envies.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 md:justify-end">
+                  <PricePill>Amuses-bouches : 1,20€</PricePill>
+                  <PricePill>Sorbets : 1,50€</PricePill>
+                  <PricePill>Desserts : 7,20€</PricePill>
+                </div>
+              </div>
+            </Card>
           </div>
 
           {/* Amuses-bouches */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
-              <SectionTitle color="primary" centered={false} className="mb-6">
-                Amuses-bouches (1,20€ pièce)
-              </SectionTitle>
-              <div className="font-inter text-base md:text-lg space-y-2 text-base-content">
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <SectionTitle color="primary" centered={false} className="mb-0">
+                  Amuses-bouches
+                </SectionTitle>
+                <PricePill>1,20€ pièce</PricePill>
+              </div>
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
                 <p>• Soufflé d'églefin au cresson</p>
                 <p>• Vol au vent andouille de Vire, pomme</p>
                 <p>• Blinis quenelle de rillette de poisson</p>
@@ -72,8 +121,8 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Atelier apéritif */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
               <SectionTitle color="primary" centered={false} className="mb-6">
                 Atelier apéritif
               </SectionTitle>
@@ -91,17 +140,20 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Entrées */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
               <SectionTitle color="primary" centered={false} className="mb-6">
                 Entrées
               </SectionTitle>
 
               <div className="space-y-6">
-                <div>
-                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
-                    L'assiette du Moulin de la Marigotière : 18 €
-                  </h4>
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                    <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
+                      L'assiette du Moulin de la Marigotière
+                    </h4>
+                    <PricePill>18 €</PricePill>
+                  </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>• Notre foie gras de canard, chutney de saison</p>
                     <p>• Raviole de volaille, crème de truffe</p>
@@ -110,10 +162,13 @@ export default function MenuReception({ openModal }) {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
-                    L'assiette "Prestige du Moulin" : 19 €
-                  </h4>
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                    <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
+                      L'assiette "Prestige du Moulin"
+                    </h4>
+                    <PricePill>19 €</PricePill>
+                  </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>• Gratin de ris de veau, champignon de saison</p>
                     <p>
@@ -127,10 +182,13 @@ export default function MenuReception({ openModal }) {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
-                    L'assiette "Normandises" : 17 €
-                  </h4>
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                    <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
+                      L'assiette "Normandises"
+                    </h4>
+                    <PricePill>17 €</PricePill>
+                  </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>• Cassolette de sot-l'y-laisse et andouille de Vire</p>
                     <p>• Sandwich de foie gras de canard poêlé aux poires</p>
@@ -138,10 +196,13 @@ export default function MenuReception({ openModal }) {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
-                    L'assiette "Terre & Mer" : 19 €
-                  </h4>
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                    <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
+                      L'assiette "Terre & Mer"
+                    </h4>
+                    <PricePill>19 €</PricePill>
+                  </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>
                       • Tartare de saumon mariné au citron vert, semoule de
@@ -160,10 +221,13 @@ export default function MenuReception({ openModal }) {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
-                    La "grande assiette de crustacés" : 27 €
-                  </h4>
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2">
+                    <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
+                      La "grande assiette de crustacés"
+                    </h4>
+                    <PricePill>27 €</PricePill>
+                  </div>
                   <p className="font-inter text-sm text-base-content/70 mb-2">
                     Homard ou langouste ou langoustine (selon la saison)
                   </p>
@@ -184,11 +248,14 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Sorbets */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
-              <SectionTitle color="primary" centered={false} className="mb-6">
-                Les Sorbets (1,50 € pièce)
-              </SectionTitle>
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <SectionTitle color="primary" centered={false} className="mb-0">
+                  Les Sorbets
+                </SectionTitle>
+                <PricePill>1,50 € pièce</PricePill>
+              </div>
               <p className="font-inter text-sm text-base-content/70 mb-4">
                 Servis avec ou sans alcool
               </p>
@@ -225,8 +292,8 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Plat principal */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
               <SectionTitle color="primary" centered={false} className="mb-6">
                 Plat principal
               </SectionTitle>
@@ -327,8 +394,8 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Fromage */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
               <SectionTitle color="primary" centered={false} className="mb-6">
                 Fromage
               </SectionTitle>
@@ -347,11 +414,14 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Desserts */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <Card>
-              <SectionTitle color="primary" centered={false} className="mb-6">
-                Les desserts (7,20 € pièce)
-              </SectionTitle>
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <SectionTitle color="primary" centered={false} className="mb-0">
+                  Les desserts
+                </SectionTitle>
+                <PricePill>7,20 € pièce</PricePill>
+              </div>
               <p className="font-inter text-sm text-base-content/70 mb-4">
                 Composez votre assiette de quatre desserts au choix
               </p>
@@ -388,11 +458,14 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Café et mignardises */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <Card>
-              <SectionTitle color="primary" centered={false} className="mb-6">
-                Café et mignardises (1,70 €)
-              </SectionTitle>
+          <div className="max-w-5xl mx-auto mb-12">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                <SectionTitle color="primary" centered={false} className="mb-0">
+                  Café et mignardises
+                </SectionTitle>
+                <PricePill>1,70 €</PricePill>
+              </div>
               <p className="font-inter text-base text-base-content">
                 Guimauves, pâtes de fruits, cannelés, chocolats
               </p>
@@ -400,24 +473,25 @@ export default function MenuReception({ openModal }) {
           </div>
 
           {/* Message final */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <Card className="bg-base-200">
-              <div className="font-inter text-lg text-center space-y-4 text-base-content">
-                <p className="font-semibold">
-                  Nous pouvons vous établir un devis gratuit et rapide !
-                </p>
-                <p>
-                  Nous pouvons aussi nous rencontrer pour étudier ensemble tous
-                  les détails de votre projet.
-                </p>
+          <div className="max-w-5xl mx-auto">
+            <Card className="bg-base-200 border border-base-300 shadow-xl" padding="p-6 md:p-10">
+              <div className="grid gap-6 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-2">
+                  <p className="font-inter text-lg md:text-xl text-base-content">
+                    <span className="font-semibold">
+                      Nous pouvons vous établir un devis gratuit et rapide.
+                    </span>{" "}
+                    Nous pouvons aussi nous rencontrer pour étudier ensemble
+                    tous les détails de votre projet.
+                  </p>
+                </div>
+                <div className="md:justify-self-end">
+                  <Button onClick={openModal} size="lg">
+                    Demandez votre devis
+                  </Button>
+                </div>
               </div>
             </Card>
-          </div>
-
-          <div className="text-center">
-            <Button onClick={openModal} size="lg">
-              Demandez votre devis
-            </Button>
           </div>
         </div>
       </main>

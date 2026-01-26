@@ -1,10 +1,18 @@
+import SEO from "../components/SEO";
+
 export default function MentionsLegales() {
   return (
-    <main className="bg-base-100">
-      <div className="container mx-auto px-6 py-16 max-w-4xl">
-        <h1 className="text-4xl md:text-6xl font-cormorant-sc text-center mb-12 text-base-content">
-          Mentions Légales
-        </h1>
+    <>
+      <SEO
+        title="Mentions légales"
+        description="Mentions légales du site Moulin de la Marigotière : éditeur, hébergement, protection des données personnelles et cookies."
+        keywords="mentions légales, traiteur Thiberville, données personnelles, cookies"
+      />
+      <main className="bg-base-100">
+        <div className="container mx-auto px-6 py-16 max-w-4xl">
+          <h1 className="text-4xl md:text-6xl font-cormorant-sc text-center mb-12 text-base-content">
+            Mentions Légales
+          </h1>
 
         <div className="space-y-8 font-inter text-lg text-base-content">
           <section>
@@ -83,15 +91,21 @@ export default function MentionsLegales() {
             </p>
           </section>
 
-          <section>
+          <section id="cookies">
             <h2 className="text-2xl font-cormorant-sc text-[#9B1227] mb-4">
               Cookies
             </h2>
             <p>
               Ce site utilise des cookies pour améliorer l'expérience
               utilisateur et mémoriser vos préférences (mode d'affichage
-              clair/sombre). Ces cookies ne collectent aucune donnée personnelle
-              et sont stockés localement dans votre navigateur.
+              clair/sombre). Des cookies de mesure d'audience peuvent aussi être
+              utilisés (Google Analytics) afin de comprendre la fréquentation du
+              site et améliorer son contenu.
+            </p>
+            <p className="mt-4">
+              Vous pouvez accepter ou refuser ces cookies via le bandeau affiché
+              lors de votre première visite, et modifier votre choix à tout
+              moment via le lien « Gestion des cookies » en bas de page.
             </p>
           </section>
 
@@ -108,7 +122,8 @@ export default function MentionsLegales() {
             </p>
           </section>
         </div>
-      </div>
-    </main>
+        </div>
+      </main>
+    </>
   );
 }

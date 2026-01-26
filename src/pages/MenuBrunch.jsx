@@ -1,5 +1,6 @@
 import MenuNavigation from "@/components/MenuNavigation";
 import { commonImages } from "@/data/imagesData";
+import SEO from "@/components/SEO";
 
 const { photoPlat, photoPlat2, photoPlat3, photoPlat4 } = commonImages;
 
@@ -14,8 +15,14 @@ const dishImages = [
 
 export default function MenuBrunch({ openModal }) {
   return (
-    <main className="bg-base-100">
-      <MenuNavigation currentMenu="brunch" />
+    <>
+      <SEO
+        title="Brunch"
+        description="Brunch traiteur à Thiberville : formule sucrée/salée conviviale pour mariages, réceptions et événements professionnels. Produits frais et de saison."
+        keywords="brunch, traiteur, Thiberville, réception, mariage, événement, Eure"
+      />
+      <main className="bg-base-100">
+        <MenuNavigation currentMenu="brunch" />
 
       <div className="w-full h-96 overflow-hidden">
         <img
@@ -66,29 +73,20 @@ export default function MenuBrunch({ openModal }) {
             </h3>
             <div className="font-inter text-lg space-y-4 text-base-content">
               <p>
-                <strong>Boissons chaudes :</strong> Café, thé, chocolat chaud
+                <strong>Prix :</strong> 32€ par personne
               </p>
               <p>
-                <strong>Jus de fruits :</strong> Orange pressée, pamplemousse,
-                pomme
+                <strong>Boissons :</strong> Café, Thé, Chocolat chaud, Lait, Jus
+                d'orange, Jus de pomme
               </p>
               <p>
-                <strong>Viennoiseries :</strong> Croissants, pains au chocolat,
-                pains aux raisins
+                <strong>Sucré et accompagnement :</strong> Brioche, minis
+                viennoiseries, baguettes, céréales, tartelette de fruit,
+                corbeille de fruit, miel, nutella, confiture, beurre
               </p>
               <p>
-                <strong>Charcuterie :</strong> Jambon, saucisson, terrines
-                maison
-              </p>
-              <p>
-                <strong>Fromages :</strong> Sélection de fromages normands
-              </p>
-              <p>
-                <strong>Plats chauds :</strong> Œufs brouillés, bacon, saucisses
-              </p>
-              <p>
-                <strong>Sucré :</strong> Pancakes, gaufres, fruits frais,
-                confitures maison
+                <strong>Salé :</strong> Oeufs brouillés, bacon, pancake, jambon
+                blanc, jambon sec, salade de tomate, taboulé, fromage blanc
               </p>
             </div>
           </div>
@@ -103,6 +101,7 @@ export default function MenuBrunch({ openModal }) {
           </button>
         </div>
       </div>
-    </main>
+      </main>
+    </>
   );
 }
