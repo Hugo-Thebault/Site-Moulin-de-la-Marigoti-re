@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "node server/index.js",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "node server/index.js",
     "optimize-images": "node scripts/optimize-images.js",
     "replace-images": "node scripts/replace-images.js",
     "download-fonts": "node scripts/download-fonts.js",
@@ -19,6 +21,10 @@
     "lighthouse:preview": "VITE_PORT=4173 node scripts/lighthouse-test.js"
   },
   "dependencies": {
+    "compression": "^1.8.1",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "helmet": "^7.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",

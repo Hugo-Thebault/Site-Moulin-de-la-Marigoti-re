@@ -123,6 +123,52 @@ VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 Le site enverra automatiquement des `page_view` à chaque changement de route (SPA).
 
+## ✉️ Formulaire de contact (Mailjet)
+
+Le formulaire "Demandez votre devis" envoie un email via une **API serveur** (`/api/contact`).
+
+- L'email est envoyé au traiteur (destinataire) et le client est mis **en copie (CC)** pour suivre la conversation.
+- Les clés Mailjet ne sont **jamais** exposées côté front.
+- Anti-spam gratuit inclus : honeypot + délai minimum avant envoi.
+- Rate limiting inclus : 5 envois / 10 min / IP (mémoire serveur).
+
+### Développement local
+
+Dans 2 terminaux :
+
+```bash
+# Terminal 1 (front)
+npm run dev
+
+# Terminal 2 (API)
+npm run dev:api
+```
+
+Vite proxifie automatiquement `/api` vers `http://localhost:3001`.
+
+### Production (OVH)
+
+Deux options courantes :
+
+1) **Même serveur Node** (recommandé si vous avez un VPS/Public Cloud/Node hosting OVH)
+  - `npm run build`
+  - `npm run start`
+  - Le serveur [server/index.js](server/index.js) servira `dist/` si présent + l'API `/api/contact`.
+
+2) **Front statique + API séparée** (API sur un autre domaine/sous-domaine)
+  - Côté front : définir `VITE_CONTACT_API_BASE_URL=https://api.votre-domaine.fr`
+  - Côté API : définir `CORS_ORIGIN=https://www.votre-domaine.fr`
+
+### Variables d'environnement
+
+Front (Vite) : voir `.env.example`.
+
+API (Node) : voir `server/.env.example` (à configurer sur l'hébergement OVH) :
+
+- `MAILJET_API_KEY`, `MAILJET_API_SECRET`
+- `CONTACT_TO_EMAIL` (email du traiteur)
+- `MAIL_FROM_EMAIL` (sender Mailjet validé, avec SPF/DKIM)
+
 ## 📝 Gestion des menus spéciaux
 
 Pour activer/désactiver les menus spéciaux temporaires :

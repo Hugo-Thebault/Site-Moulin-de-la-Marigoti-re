@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ContactModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -9,15 +9,62 @@ export default function ContactModal({ isOpen, onClose }) {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const [website, setWebsite] = useState("");
+  const [formStartedAt, setFormStartedAt] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const contactEndpoint = useMemo(() => {
+    const base = import.meta.env.VITE_CONTACT_API_BASE_URL || "";
+    return `${base}/api/contact`;
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    setFormStartedAt(Date.now());
+    setSubmitError("");
+    setIsSubmitting(false);
+    setWebsite("");
+  }, [isOpen]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement backend logic
-    console.log("Form submitted:", formData);
-    alert(
-      "Merci pour votre message ! Nous vous répondrons dans les plus brefs délais."
-    );
-    setFormData({ name: "", email: "", phone: "", address: "", message: "" });
-    onClose();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch(contactEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          website,
+          formStartedAt,
+        }),
+      });
+
+      const data = await response.json().catch(() => null);
+      if (!response.ok || !data?.ok) {
+        throw new Error(
+          data?.error ||
+            "Impossible d'envoyer votre demande pour le moment. Réessayez plus tard."
+        );
+      }
+
+      alert(
+        "Merci pour votre message ! Nous vous répondrons dans les plus brefs délais."
+      );
+      setFormData({ name: "", email: "", phone: "", address: "", message: "" });
+      onClose();
+    } catch (error) {
+      setSubmitError(error?.message || "Erreur lors de l'envoi.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -67,6 +114,20 @@ export default function ContactModal({ isOpen, onClose }) {
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Honeypot anti-spam (ne pas remplir) */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="website">Website</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           <div>
             <label
               htmlFor="name"
@@ -166,11 +227,16 @@ export default function ContactModal({ isOpen, onClose }) {
             <span className="text-red-500">*</span> Champs obligatoires
           </div>
 
+          {submitError ? (
+            <div className="text-sm text-red-600">{submitError}</div>
+          ) : null}
+
           <button
             type="submit"
-            className="w-full gradient-primary text-white px-6 py-3 rounded font-medium hover:scale-105 hover:shadow-lg transition-all duration-300"
+            disabled={isSubmitting}
+            className="w-full gradient-primary text-white px-6 py-3 rounded font-medium hover:scale-105 hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-not-allowed"
           >
-            Envoyer ma demande
+            {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
           </button>
         </form>
       </div>
