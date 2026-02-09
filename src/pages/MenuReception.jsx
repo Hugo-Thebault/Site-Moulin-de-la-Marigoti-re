@@ -120,21 +120,50 @@ export default function MenuReception({ openModal }) {
             </Card>
           </div>
 
-          {/* Atelier apéritif */}
+          {/* Amuses-bouches Prestige */}
           <div className="max-w-5xl mx-auto mb-10">
             <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
               <SectionTitle color="primary" centered={false} className="mb-6">
-                Atelier apéritif
+                Amuses-bouches Prestige
               </SectionTitle>
-              <div className="font-inter text-base md:text-lg space-y-2 text-base-content">
-                <p>
-                  • Kiosque de gamba marinée aux épices Thaï cuite à la plancha
-                </p>
-                <p>
-                  • Kiosque foie gras de canard poêlé, cuit à la plancha sur un
-                  pain brioché
-                </p>
-                <p>• Kiosque de découpe de saumon fumé et mariné sur blinis</p>
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
+                <p>• Ris de veau braisé au porto <span className="text-[#9B1227] font-semibold">(2,20 €)</span></p>
+                <p>• Cuisse de caille rôti aux épices <span className="text-[#9B1227] font-semibold">(1,50 €)</span></p>
+                <p>• Huître chaude ou froide <span className="text-[#9B1227] font-semibold">(2,00 €)</span></p>
+                <p>• Briochette foie gras poêlé <span className="text-[#9B1227] font-semibold">(2,50 €)</span></p>
+              </div>
+            </Card>
+          </div>
+
+          {/* Ateliers Prestige */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <SectionTitle color="primary" centered={false} className="mb-6">
+                Ateliers Prestige
+              </SectionTitle>
+
+              <div className="space-y-6">
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
+                    Kiosque Plancha
+                  </h4>
+                  <div className="font-inter text-base space-y-1 text-base-content">
+                    <p>• Gambas épices thaï <span className="text-[#9B1227] font-semibold">(2,60 €)</span></p>
+                    <p>• Foie gras poêlé <span className="text-[#9B1227] font-semibold">(2,60 €)</span></p>
+                    <p>• Brochette volaille marinée <span className="text-[#9B1227] font-semibold">(2,20 €)</span></p>
+                    <p>• Noix de St-Jacques snackée <span className="text-[#9B1227] font-semibold">(2,10 €)</span></p>
+                  </div>
+                </div>
+
+                <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
+                  <h4 className="text-xl font-cormorant-sc text-[#9B1227] mb-3">
+                    Atelier Découpe
+                  </h4>
+                  <div className="font-inter text-base space-y-1 text-base-content">
+                    <p>• Jambon serrano sur pâte <span className="text-[#9B1227] font-semibold">(2,60 €)</span></p>
+                    <p>• Saumon fumé/mariné/gravlax sur blinis <span className="text-[#9B1227] font-semibold">(2,50 €)</span></p>
+                  </div>
+                </div>
               </div>
             </Card>
           </div>
@@ -457,18 +486,15 @@ export default function MenuReception({ openModal }) {
             </Card>
           </div>
 
-          {/* Café et mignardises */}
+          {/* Café et cannelés */}
           <div className="max-w-5xl mx-auto mb-12">
             <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <SectionTitle color="primary" centered={false} className="mb-0">
-                  Café et mignardises
+                  Café et cannelés
                 </SectionTitle>
                 <PricePill>1,70 €</PricePill>
               </div>
-              <p className="font-inter text-base text-base-content">
-                Guimauves, pâtes de fruits, cannelés, chocolats
-              </p>
             </Card>
           </div>
 

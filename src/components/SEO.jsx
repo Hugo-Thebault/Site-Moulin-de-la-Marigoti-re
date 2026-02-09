@@ -10,6 +10,7 @@ export default function SEO({
   keywords = "traiteur, Thiberville, mariage, réception, François Duperrey, maître restaurateur, Eure, Normandie, buffet, cocktail, séminaire",
   image,
   url,
+  noindex = false,
 }) {
   const fullTitle = title.includes("Moulin")
     ? title
@@ -106,7 +107,7 @@ export default function SEO({
       </script>
 
       {/* Meta tags supplémentaires */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
       <meta
         name="author"
         content="François Duperrey - Traiteur de Thiberville"

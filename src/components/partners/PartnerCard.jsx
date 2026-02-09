@@ -31,18 +31,9 @@ export default function PartnerCard({ partner }) {
             📞 {partner.phone}
           </p>
         )}
-        {partner.url ? (
-          <a
-            href={partner.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-[#9B1227] font-medium group-hover:underline"
-          >
+        {partner.url && (
+          <p className="text-[#9B1227] font-medium">
             Visiter le site →
-          </a>
-        ) : (
-          <p className="text-gray-500 italic text-sm">
-            Contactez-nous pour plus d'informations
           </p>
         )}
       </div>

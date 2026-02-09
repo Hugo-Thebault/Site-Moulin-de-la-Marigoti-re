@@ -2,7 +2,6 @@ import MenuNavigation from "../components/MenuNavigation";
 import SectionTitle from "../components/ui/SectionTitle";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
-import MenuSection from "../components/menu/MenuSection";
 import { commonImages } from "../data/imagesData";
 import entree3 from "@/assets/images/Entree3.jpeg";
 import SEO from "../components/SEO";
@@ -57,94 +56,177 @@ export default function Menu39({ openModal }) {
       <main className="bg-base-100">
         <MenuNavigation currentMenu="menu-39" />
 
-      {/* Photo hero */}
-      <div className="w-full h-96 overflow-hidden">
-        <img
-          src={entree3}
-          alt="Menu à 39€"
-          className="w-full h-full object-cover"
-        />
-      </div>
+        {/* Hero Section */}
+        <section className="relative w-full h-[420px] md:h-[520px] overflow-hidden">
+          <img
+            src={entree3}
+            alt="Menu à 39€"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/35 to-black/15" />
 
-      <div className="container mx-auto px-6 py-16">
-        {/* Titre */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <SectionTitle color="base">Notre menu à 39€</SectionTitle>
-          <p className="text-lg text-center text-base-content/70 mb-8">
-            Minimum 10 personnes
-          </p>
-        </div>
+          <div className="relative h-full container mx-auto px-6 flex items-end">
+            <div className="w-full max-w-4xl pb-10 md:pb-14">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm font-semibold text-white ring-1 ring-white/20">
+                  Menu complet
+                </span>
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm font-semibold text-white ring-1 ring-white/20">
+                  39€
+                </span>
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs md:text-sm font-semibold text-white ring-1 ring-white/20">
+                  Réception
+                </span>
+              </div>
 
-        {/* Sections du menu */}
-        <MenuSection title="Entrée au choix" items={entrees} className="mb-8" />
+              <h1 className="text-4xl md:text-6xl font-cormorant-sc text-white leading-tight">
+                Menu à 39€
+              </h1>
+              <p className="mt-4 text-base md:text-lg font-inter text-white/90 leading-relaxed">
+                Un menu complet et raffiné avec entrée, plat, fromage et dessert au choix. 
+                Préparé avec des produits frais et de saison par notre maître restaurateur.
+              </p>
 
-        <MenuSection
-          title="Plat au choix"
-          items={plats}
-          note="Toutes nos garnitures et sauces peuvent être changées selon vos envies et par rapport à la saison"
-          className="mb-8"
-        />
-
-        {/* Mesclun et Fromage */}
-        <div className="max-w-4xl mx-auto mb-8">
-          <Card>
-            <SectionTitle color="primary" centered={false} className="mb-6">
-              Mesclun et Fromage
-            </SectionTitle>
-            <div className="font-inter text-base md:text-lg text-base-content">
-              <p>Salade du moment et trois fromages affinés</p>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <Button onClick={openModal} size="lg">
+                  Demandez votre devis
+                </Button>
+                <a
+                  href="#formule"
+                  className="btn btn-outline btn-lg border-white/60 text-white hover:bg-white/10 hover:border-white"
+                >
+                  Voir le menu
+                </a>
+              </div>
             </div>
-          </Card>
-        </div>
+          </div>
+        </section>
 
-        <MenuSection
-          title="Dessert au choix"
-          items={desserts}
-          className="mb-8"
-        />
+        <div className="container mx-auto px-6 py-14 md:py-16" id="formule">
+          {/* Introduction */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <div className="grid gap-4 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-2">
+                  <p className="text-base md:text-lg font-inter leading-relaxed text-base-content mb-2">
+                    Notre menu à 39€ offre un excellent rapport qualité-prix sans compromis 
+                    sur la fraîcheur des produits et le savoir-faire de notre maître restaurateur.
+                  </p>
+                  <p className="text-sm font-inter text-base-content/70">
+                    Minimum 10 personnes
+                  </p>
+                </div>
+                <div className="flex justify-center md:justify-end">
+                  <span className="inline-flex items-center rounded-full bg-[#9B1227] px-5 py-2.5 text-xl font-semibold text-white">
+                    39 €
+                  </span>
+                </div>
+              </div>
+            </Card>
+          </div>
 
-        {/* Informations */}
-        <div className="max-w-4xl mx-auto mb-12">
-          <Card>
-            <SectionTitle color="primary" centered={false} className="mb-4">
-              Informations importantes
-            </SectionTitle>
-            <div className="font-inter text-base space-y-3 text-base-content">
-              <p>
-                <strong>Prix :</strong> 39€ par personne
-              </p>
-              <p>
-                <strong>Minimum :</strong> 10 personnes
-              </p>
-              <p>
-                <strong>Formule :</strong> Entrée + Plat + Mesclun & Fromage +
-                Dessert
-              </p>
-              <p>
-                <strong>Boissons :</strong> Non incluses (supplément sur
-                demande)
-              </p>
-              <p>
-                <strong>Option :</strong> Des amuse-bouches du menu réception
-                peuvent être ajoutés selon vos envies (supplément)
-              </p>
-              <p className="text-sm italic text-base-content/70 mt-4 pt-4 border-t border-base-300">
-                Notre menu à 39€ offre un excellent rapport qualité-prix sans
-                compromis sur la fraîcheur des produits et le savoir-faire de
-                notre maître restaurateur. Chaque plat est préparé avec soin en
-                utilisant des produits locaux et de saison.
-              </p>
-            </div>
-          </Card>
-        </div>
+          {/* Entrées */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <SectionTitle color="primary" centered={false} className="mb-6">
+                Entrée au choix
+              </SectionTitle>
+              <div className="font-inter text-base md:text-lg space-y-2 text-base-content">
+                {entrees.map((item, index) => (
+                  <p key={index}>• {item.name}</p>
+                ))}
+              </div>
+            </Card>
+          </div>
 
-        {/* Bouton devis */}
-        <div className="text-center">
-          <Button onClick={openModal} size="lg">
-            Demandez votre devis
-          </Button>
+          {/* Plats */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <SectionTitle color="primary" centered={false} className="mb-6">
+                Plat au choix
+              </SectionTitle>
+              <div className="font-inter text-base md:text-lg space-y-2 text-base-content mb-4">
+                {plats.map((item, index) => (
+                  <p key={index}>• {item.name}</p>
+                ))}
+              </div>
+              <p className="font-inter text-sm text-base-content/70 italic pt-4 border-t border-base-300">
+                Toutes nos garnitures et sauces peuvent être changées selon vos envies et par rapport à la saison
+              </p>
+            </Card>
+          </div>
+
+          {/* Mesclun et Fromage */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <SectionTitle color="primary" centered={false} className="mb-6">
+                Mesclun et Fromage
+              </SectionTitle>
+              <div className="font-inter text-base md:text-lg text-base-content">
+                <p>Salade du moment et trois fromages affinés</p>
+              </div>
+            </Card>
+          </div>
+
+          {/* Desserts */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <SectionTitle color="primary" centered={false} className="mb-6">
+                Dessert au choix
+              </SectionTitle>
+              <div className="font-inter text-base md:text-lg space-y-2 text-base-content">
+                {desserts.map((item, index) => (
+                  <p key={index}>• {item.name}</p>
+                ))}
+              </div>
+            </Card>
+          </div>
+
+          {/* Options et informations */}
+          <div className="max-w-5xl mx-auto mb-10">
+            <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+              <SectionTitle color="primary" centered={false} className="mb-6">
+                Options et informations
+              </SectionTitle>
+              <div className="font-inter text-base space-y-3 text-base-content">
+                <p>
+                  <strong>Formule :</strong> Entrée + Plat + Mesclun & Fromage + Dessert
+                </p>
+                <p>
+                  <strong>Minimum :</strong> 10 personnes
+                </p>
+                <p>
+                  <strong>Boissons :</strong> Non incluses (supplément sur demande)
+                </p>
+                <p>
+                  <strong>Option :</strong> Des amuse-bouches du menu réception peuvent être ajoutés selon vos envies (supplément)
+                </p>
+              </div>
+            </Card>
+          </div>
+
+          {/* Message final */}
+          <div className="max-w-5xl mx-auto">
+            <Card className="bg-base-200 border border-base-300 shadow-xl" padding="p-6 md:p-10">
+              <div className="grid gap-6 md:grid-cols-3 md:items-center">
+                <div className="md:col-span-2">
+                  <p className="font-inter text-lg md:text-xl text-base-content">
+                    <span className="font-semibold">
+                      Nous pouvons vous établir un devis gratuit et rapide.
+                    </span>{" "}
+                    Nous pouvons aussi nous rencontrer pour étudier ensemble
+                    tous les détails de votre projet.
+                  </p>
+                </div>
+                <div className="md:justify-self-end">
+                  <Button onClick={openModal} size="lg">
+                    Demandez votre devis
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
-      </div>
       </main>
     </>
   );

@@ -22,6 +22,7 @@ const MenuBuffetFroid = lazy(() => import("./pages/MenuBuffetFroid"));
 const Menu39 = lazy(() => import("./pages/Menu39"));
 const Partners = lazy(() => import("./pages/Partners"));
 const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback
 function LoadingFallback() {
@@ -87,6 +88,7 @@ function AppContent() {
           />
           <Route path="/partenaires" element={<Partners />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <Footer />

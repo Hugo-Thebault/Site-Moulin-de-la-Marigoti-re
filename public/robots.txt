@@ -3,16 +3,9 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://votre-domaine.fr/sitemap.xml
+# Sitemap (mettre à jour avec votre domaine réel)
+# Sitemap: https://www.moulin-marigotiere.fr/sitemap.xml
 
-# Bloquer les dossiers techniques
+# Bloquer les dossiers techniques et l'API
 Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
 Disallow: /node_modules/
-
-# Autoriser les ressources importantes
-Allow: /src/assets/images/*.webp
-Allow: /src/assets/images/*.jpg
-Allow: /src/assets/fonts/*.woff2
