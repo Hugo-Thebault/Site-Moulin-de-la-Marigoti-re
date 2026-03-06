@@ -24,10 +24,12 @@ const PartnerCard = memo(({ partner }) => {
     >
       <img
         src={partner.image}
-        alt={partner.name}
+        alt={`${partner.name} - partenaire du Moulin de la Marigotière`}
         className="w-full h-64 object-cover"
         loading="lazy"
         decoding="async"
+        width={600}
+        height={400}
       />
       <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex items-end">
         <p className="text-white font-inter text-xl p-4 w-full text-center">

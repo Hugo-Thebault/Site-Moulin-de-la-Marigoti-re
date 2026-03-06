@@ -1,5 +1,5 @@
 import { useState } from "react";
-import localisationImage from "@/assets/images/Localisation.webp";
+import localisationImage from "@/assets/images/Localisation.final.webp";
 import ImageGalleryModal from "./ImageGalleryModal";
 
 export default function Location() {
@@ -43,7 +43,7 @@ export default function Location() {
         {/* Desktop: 2 colonnes (infos à gauche / image à droite) */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-stretch">
           {/* Carte d'informations stylisée */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden md:col-span-2">
+          <div className="bg-base-100 rounded-2xl shadow-2xl overflow-hidden md:col-span-2">
             <div className="p-8 md:p-12 text-center">
               {/* Icône de localisation */}
               <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-[#9B1227] to-[#570a16] rounded-full mb-6">
@@ -140,6 +140,8 @@ export default function Location() {
               alt="Plan d'accès - Moulin de la Marigotière"
               className="w-full h-full object-cover"
               loading="lazy"
+              width={600}
+              height={302}
             />
           </div>
         </div>

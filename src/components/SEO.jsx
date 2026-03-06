@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import defaultOgImage from "../assets/images/Logo.gif";
+import defaultOgImage from "../assets/images/Logo.sm.webp";
 
 /**
  * Composant SEO pour gérer les meta tags

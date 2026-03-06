@@ -7,9 +7,11 @@ export default function PartnerCard({ partner }) {
       <div className="relative">
         <img
           src={partner.image}
-          alt={partner.name}
+          alt={`${partner.name} - partenaire du Moulin de la Marigotière`}
           className="w-full h-64 object-cover"
           loading="lazy"
+          width={600}
+          height={400}
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex items-end">
           <h3 className="text-white font-cormorant-sc text-2xl p-6 w-full">

@@ -52,6 +52,8 @@ export default function MenuSection() {
                 fadeOut ? "opacity-0" : "opacity-100"
               }`}
               loading="lazy"
+              width={600}
+              height={338}
             />
           </div>
         </div>

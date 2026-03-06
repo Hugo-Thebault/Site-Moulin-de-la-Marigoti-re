@@ -4,18 +4,12 @@ import photoPlat3 from "@/assets/images/photo-plat-3.webp";
 import photoPlat4 from "@/assets/images/photo-plat-4.webp";
 import leafIcon from "@/assets/images/leaf-icon.webp";
 
-// Prefer the new JPEG if present, otherwise fallback to the existing WebP.
-// Using a glob keeps the build safe even if one of the files is missing.
-const chefCandidates = import.meta.glob(
-  "../assets/images/photo-chef.{jpeg,jpg,webp,png}",
-  { eager: true, import: "default" }
-);
+// Import direct des versions WebP optimisées du photo-chef
+import photoChefImg from "@/assets/images/photo-chef.sm.webp";
+import photoChefSmallImg from "@/assets/images/photo-chef.xs.webp";
 
-const photoChef =
-  chefCandidates["../assets/images/photo-chef.jpeg"] ||
-  chefCandidates["../assets/images/photo-chef.jpg"] ||
-  chefCandidates["../assets/images/photo-chef.webp"] ||
-  chefCandidates["../assets/images/photo-chef.png"];
+const photoChef = photoChefImg;
+const photoChefSmall = photoChefSmallImg;
 
 // Images communes réutilisées dans le projet
 export const commonImages = {
@@ -24,6 +18,7 @@ export const commonImages = {
   photoPlat3,
   photoPlat4,
   photoChef,
+  photoChefSmall,
   leafIcon,
 };
 

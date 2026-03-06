@@ -1,5 +1,5 @@
 import photoPlat4 from "@/assets/images/photo-plat-4.webp";
-import buffet3 from "@/assets/images/Buffet3.optimized.webp";
+import buffet3 from "@/assets/images/Buffet3.final.webp";
 import plat3 from "@/assets/images/Plat3.webp";
 import dinatoire1 from "@/assets/images/Dinatoire1.webp";
 import entree4 from "@/assets/images/Entree4.webp";

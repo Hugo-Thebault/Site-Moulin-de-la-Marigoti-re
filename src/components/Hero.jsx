@@ -17,9 +17,13 @@ export default function Hero() {
             <div className="rounded-lg overflow-hidden shadow-xl max-w-[200px] md:max-w-[250px] mx-auto">
               <img
                 src={commonImages.photoChef}
-                alt="François Duperrey - Chef"
+                srcSet={`${commonImages.photoChefSmall} 350w, ${commonImages.photoChef} 500w`}
+                sizes="(min-width: 768px) 250px, 200px"
+                alt="François Duperrey - Chef traiteur au Moulin de la Marigotière"
                 className="w-full h-auto object-cover"
-                loading="lazy"
+                width={500}
+                height={667}
+                fetchPriority="high"
               />
             </div>
           </div>

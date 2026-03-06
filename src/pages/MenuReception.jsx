@@ -181,7 +181,7 @@ export default function MenuReception({ openModal }) {
                     <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
                       L'assiette du Moulin de la Marigotière
                     </h4>
-                    <PricePill>18 €</PricePill>
+                    <PricePill>19 €</PricePill>
                   </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>• Notre foie gras de canard, chutney de saison</p>
@@ -196,7 +196,7 @@ export default function MenuReception({ openModal }) {
                     <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
                       L'assiette "Prestige du Moulin"
                     </h4>
-                    <PricePill>19 €</PricePill>
+                    <PricePill>20 €</PricePill>
                   </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>• Gratin de ris de veau, champignon de saison</p>
@@ -216,11 +216,11 @@ export default function MenuReception({ openModal }) {
                     <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
                       L'assiette "Normandises"
                     </h4>
-                    <PricePill>17 €</PricePill>
+                    <PricePill>18 €</PricePill>
                   </div>
                   <div className="font-inter text-base space-y-1 text-base-content">
                     <p>• Cassolette de sot-l'y-laisse et andouille de Vire</p>
-                    <p>• Sandwich de foie gras de canard poêlé aux poires</p>
+                    <p>• Pain d'épice pommeau foie gras</p>
                     <p>• Beignet de Camembert, mesclun vinaigre de cidre</p>
                   </div>
                 </div>
@@ -255,7 +255,7 @@ export default function MenuReception({ openModal }) {
                     <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
                       La "grande assiette de crustacés"
                     </h4>
-                    <PricePill>27 €</PricePill>
+                    <PricePill>35 €</PricePill>
                   </div>
                   <p className="font-inter text-sm text-base-content/70 mb-2">
                     Homard ou langouste ou langoustine (selon la saison)
@@ -336,42 +336,42 @@ export default function MenuReception({ openModal }) {
                     <p>
                       <strong>Boeuf :</strong> le tournedos, brochette de pomme
                       grenaille persillée, sauce réduction Porto rouge{" "}
-                      <span className="text-[#9B1227]">25 €</span>
+                      <span className="text-[#9B1227]">27 €</span>
                     </p>
                     <p>
                       <strong>Canette :</strong> le filet laqué au sésame, sauce
                       aigre douce, panier vapeur de légumes{" "}
-                      <span className="text-[#9B1227]">18 €</span>
+                      <span className="text-[#9B1227]">20 €</span>
                     </p>
                     <p>
                       <strong>Pintade :</strong> le suprême poêlé sur peau,
                       sandwich foie gras de canard poêlé, légumes de saison{" "}
-                      <span className="text-[#9B1227]">26 €</span>
+                      <span className="text-[#9B1227]">27 €</span>
                     </p>
                     <p>
                       <strong>Canard :</strong> le magret (200 g), champignon du
                       moment, cocotte de purée aux truffes{" "}
-                      <span className="text-[#9B1227]">19 €</span>
+                      <span className="text-[#9B1227]">20 €</span>
                     </p>
                     <p>
                       <strong>Veau :</strong> le filet mignon fondant, crème de
                       cèpe, pomme dauphine amandine{" "}
-                      <span className="text-[#9B1227]">23 €</span>
+                      <span className="text-[#9B1227]">26 €</span>
                     </p>
                     <p>
                       <strong>Trilogie de veau :</strong> le ris, le quasi, la
                       joue braisée et confite aux morilles ou girolles, pois
-                      gourmands <span className="text-[#9B1227]">26 €</span>
+                      gourmands <span className="text-[#9B1227]">28 €</span>
                     </p>
                     <p>
                       <strong>Agneau :</strong> la souris cuite longuement,
                       petits cocos cuisinés au chorizo{" "}
-                      <span className="text-[#9B1227]">25 €</span>
+                      <span className="text-[#9B1227]">26 €</span>
                     </p>
                     <p>
                       <strong>Pigeon :</strong> désossé, farci de champignons et
                       aromates, escalope de foie gras de canard poêlé, jus de
-                      truffe <span className="text-[#9B1227]">25 €</span>
+                      truffe <span className="text-[#9B1227]">27 €</span>
                     </p>
                   </div>
                 </div>
@@ -470,6 +470,7 @@ export default function MenuReception({ openModal }) {
                 <p>• Pot "crème d'antan" - vanille, pistache, café</p>
                 <p>• Crème tendre pistache, coulis de framboise fraîche</p>
                 <p>• Charlotte aux fruits de saison</p>
+                <p>• Cheese cake spéculoos/vanille</p>
                 <p>• Sorbet et glace "maison" tous parfums</p>
                 <p>• Soupe de fruits frais au sirop vanillé</p>
               </div>

@@ -1,12 +1,13 @@
-import croixAuxLiardsImg from "@/assets/images/croix-au-liard.webp";
-import lorangerieImg from "@/assets/images/lorangerie.webp";
-import jonqueretImg from "@/assets/images/jonqueret.webp";
-import petiteHayeImg from "@/assets/images/petite-haye.webp";
-import chateauCarsixImg from "@/assets/images/chateau-de-carsix.webp";
-import chateauChapelleImg from "@/assets/images/chateau-de-la-chapelle.webp";
-import milleEmotionsImg from "@/assets/images/mille-et-une-emotion.webp";
-import paulaImg from "@/assets/images/paula.webp";
-import locaImage from "@/assets/images/loca.webp";
+import croixAuxLiardsImg from "@/assets/images/croix-au-liard.final.webp";
+import lorangerieImg from "@/assets/images/lorangerie.final.webp";
+import jonqueretImg from "@/assets/images/jonqueret.final.webp";
+import petiteHayeImg from "@/assets/images/petite-haye.final.webp";
+import chateauCarsixImg from "@/assets/images/chateau-de-carsix.final.webp";
+import chateauChapelleImg from "@/assets/images/chateau-de-la-chapelle.final.webp";
+import milleEmotionsImg from "@/assets/images/mille-et-une-emotion.final.webp";
+import paulaImg from "@/assets/images/paula.final.webp";
+import locaImage from "@/assets/images/loca.final.webp";
+import pascalAnimationsImg from "@/assets/images/pascal-animations.final.webp";
 
 // Source unique de vérité pour tous les partenaires
 export const partnersFullData = [
@@ -101,6 +102,16 @@ export const partnersFullData = [
     url: "https://paula-evenements.com/",
     category: "wedding",
   },
+  // Animation musicale
+  {
+    id: 10,
+    name: "Pascal animations",
+    description:
+      "Animation musicale professionnelle pour vos événements. DJ et sonorisation pour mariages, soirées d'entreprise et autres célébrations.",
+    image: pascalAnimationsImg,
+    url: "https://www.facebook.com/profile.php?id=100078092127434&locale=fr_FR",
+    category: "animation",
+  },
 ];
 
 // Helpers pour filtrer par catégorie
@@ -121,4 +132,5 @@ export const partnerCategories = [
   { id: "salles", title: "Salles de réception" },
   { id: "wedding", title: "Wedding planner" },
   { id: "vaisselle", title: "Location de vaisselle" },
+  { id: "animation", title: "Animation musicale" },
 ];
