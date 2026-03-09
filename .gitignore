@@ -44,3 +44,6 @@ Thumbs.db
 src/assets/images-backup/
 src/assets/images-optimized/
 !src/assets/images/*.webp
+
+# API credentials (ne jamais committer les clés Mailjet)
+public/api/config.php

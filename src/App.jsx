@@ -21,6 +21,7 @@ const MenuDinatoire = lazy(() => import("./pages/MenuDinatoire"));
 const MenuBuffetFroid = lazy(() => import("./pages/MenuBuffetFroid"));
 const Menu39 = lazy(() => import("./pages/Menu39"));
 const Partners = lazy(() => import("./pages/Partners"));
+const Gallery = lazy(() => import("./pages/Gallery"));
 const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -87,6 +88,7 @@ function AppContent() {
             element={<Menu39 openModal={openModal} />}
           />
           <Route path="/partenaires" element={<Partners />} />
+          <Route path="/galerie" element={<Gallery openModal={openModal} />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

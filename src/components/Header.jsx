@@ -287,6 +287,15 @@ export default function Header({
                   )}
                 </div>
 
+                {/* Galerie */}
+                <Link
+                  to="/galerie"
+                  onClick={closeMenu}
+                  className="block font-cormorant-infant text-xl py-2 hover:text-gray-200 transition"
+                >
+                  Galerie
+                </Link>
+
                 {/* Nos partenaires */}
                 <Link
                   to="/partenaires"

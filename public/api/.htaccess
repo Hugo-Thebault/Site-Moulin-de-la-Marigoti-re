@@ -1,0 +1,10 @@
+# Protéger le fichier de configuration
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "config.example.php">
+    Order allow,deny
+    Deny from all
+</Files>
