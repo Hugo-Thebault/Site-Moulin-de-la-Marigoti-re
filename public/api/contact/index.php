@@ -80,6 +80,13 @@ if (!empty($errors)) {
     exit;
 }
 
+// ─── Échappement anti-XSS pour le HTML de l'email ────────────────────────────
+$safeName    = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+$safeEmail   = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+$safePhone   = htmlspecialchars($phone, ENT_QUOTES, 'UTF-8');
+$safeAddress = htmlspecialchars($address, ENT_QUOTES, 'UTF-8');
+$safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+
 // ─── Construction de l'email ──────────────────────────────────────────────────
 $htmlBody = "
 <div style=\"font-family: Georgia, serif; max-width: 600px; margin: 0 auto;\">
@@ -89,16 +96,16 @@ $htmlBody = "
   </div>
   <div style=\"background: #ffffff; padding: 28px; border: 1px solid #e5e5e5; border-top: none; border-radius: 0 0 8px 8px;\">
     <table style=\"width: 100%; border-collapse: collapse;\">
-      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; width: 120px; vertical-align: top;\">Nom</td><td style=\"padding: 10px 0; color: #333;\">$name</td></tr>
-      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; vertical-align: top;\">Email</td><td style=\"padding: 10px 0;\"><a href=\"mailto:$email\" style=\"color: #9B1227;\">$email</a></td></tr>
-      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; vertical-align: top;\">Téléphone</td><td style=\"padding: 10px 0;\"><a href=\"tel:$phone\" style=\"color: #9B1227;\">$phone</a></td></tr>"
+      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; width: 120px; vertical-align: top;\">Nom</td><td style=\"padding: 10px 0; color: #333;\">$safeName</td></tr>
+      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; vertical-align: top;\">Email</td><td style=\"padding: 10px 0;\"><a href=\"mailto:$safeEmail\" style=\"color: #9B1227;\">$safeEmail</a></td></tr>
+      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; vertical-align: top;\">Téléphone</td><td style=\"padding: 10px 0;\"><a href=\"tel:$safePhone\" style=\"color: #9B1227;\">$safePhone</a></td></tr>"
 . ($address ? "
-      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; vertical-align: top;\">Adresse</td><td style=\"padding: 10px 0; color: #333;\">$address</td></tr>" : "")
+      <tr><td style=\"padding: 10px 0; color: #9B1227; font-weight: bold; vertical-align: top;\">Adresse</td><td style=\"padding: 10px 0; color: #333;\">$safeAddress</td></tr>" : "")
 . "
     </table>
     <hr style=\"border: none; border-top: 1px solid #e5e5e5; margin: 18px 0;\">
     <h3 style=\"color: #9B1227; margin: 0 0 10px; font-size: 16px;\">Message</h3>
-    <p style=\"color: #333; line-height: 1.6; white-space: pre-wrap; margin: 0;\">$message</p>
+    <p style=\"color: #333; line-height: 1.6; white-space: pre-wrap; margin: 0;\">$safeMessage</p>
   </div>
   <p style=\"text-align: center; color: #999; font-size: 12px; margin-top: 16px;\">
     Envoyé depuis le formulaire de contact du site web

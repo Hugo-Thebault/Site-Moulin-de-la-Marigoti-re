@@ -44,7 +44,7 @@ export default function MenuSection() {
           </h2>
 
           {/* Photo du menu avec transition simple */}
-          <div className="relative overflow-hidden rounded-lg shadow-2xl aspect-[16/9] w-full max-w-xl">
+          <div className="relative overflow-hidden rounded-lg shadow-2xl aspect-video w-full max-w-xl">
             <img
               src={currentMenu.image}
               alt={currentMenu.title}

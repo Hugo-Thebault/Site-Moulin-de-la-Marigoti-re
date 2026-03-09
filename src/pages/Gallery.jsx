@@ -47,7 +47,7 @@ function HeroCarousel() {
             width={800}
             height={600}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
         </div>
       ))}
 
@@ -311,8 +311,8 @@ export default function Gallery({ openModal }) {
                       alt={image.alt}
                       className={`w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out ${
                         image.orientation === "portrait"
-                          ? "aspect-[3/4]"
-                          : "aspect-[4/3]"
+                          ? "aspect-3/4"
+                          : "aspect-4/3"
                       }`}
                       loading="lazy"
                       decoding="async"
@@ -320,7 +320,7 @@ export default function Gallery({ openModal }) {
                       height={image.orientation === "portrait" ? 1067 : 600}
                     />
                     {/* Overlay au survol */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
+                    <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end">
                       <div className="p-4 w-full">
                         <p className="text-white font-inter text-sm drop-shadow">
                           {image.alt}
