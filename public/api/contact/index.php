@@ -131,6 +131,10 @@ $payload = json_encode([
             'Email' => $config['TO_EMAIL'],
             'Name'  => $config['TO_NAME'],
         ]],
+        'Cc' => [[
+            'Email' => $email,
+            'Name'  => $name,
+        ]],
         'ReplyTo' => [
             'Email' => $email,
             'Name'  => $name,
