@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { setCookieConsent, useCookieConsent } from "@/hooks/useCookieConsent";
 
 export default function CookieBanner() {
-  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   const consent = useCookieConsent();
 
-  if (!measurementId) return null;
   if (consent === "accepted" || consent === "rejected") return null;
 
   return (
