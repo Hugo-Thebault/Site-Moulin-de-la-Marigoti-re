@@ -16,7 +16,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
   const contactEndpoint = useMemo(() => {
     const base = import.meta.env.VITE_CONTACT_API_BASE_URL || "";
-    return `${base}/api/contact`;
+    return `${base}/api/contact/`;
   }, []);
 
   useEffect(() => {
