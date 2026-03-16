@@ -184,7 +184,7 @@ export default function MenuReception({ openModal }) {
                 <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
                     <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
-                      L'assiette du Moulin de la Marigotière
+                      L'assiette de l'Odasiette
                     </h4>
                     <PricePill>19 €</PricePill>
                   </div>
@@ -199,7 +199,7 @@ export default function MenuReception({ openModal }) {
                 <div className="rounded-lg border border-base-300 bg-base-200/40 p-5">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
                     <h4 className="text-xl font-cormorant-sc text-[#9B1227]">
-                      L'assiette "Prestige du Moulin"
+                      L'assiette "Prestige de l'Odasiette"
                     </h4>
                     <PricePill>20 €</PricePill>
                   </div>

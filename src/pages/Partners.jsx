@@ -31,7 +31,7 @@ export default function Partners() {
           <div className="container mx-auto">
             <SectionTitle color="base">Nos Partenaires</SectionTitle>
             <p className="text-lg md:text-xl font-inter text-center max-w-3xl mx-auto text-base-content leading-relaxed mt-6">
-              Depuis plusieurs années déjà, le Moulin de la Marigotière
+              Depuis plusieurs années déjà, l'Odasiette
               travaille avec des partenaires locaux aussi bien pour les lieux de
               réceptions que pour les produits. Nous privilégions les circuits
               courts et les producteurs qui partagent nos valeurs de qualité et

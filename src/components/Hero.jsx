@@ -19,7 +19,7 @@ export default function Hero() {
                 src={commonImages.photoChef}
                 srcSet={`${commonImages.photoChefSmall} 350w, ${commonImages.photoChef} 500w`}
                 sizes="(min-width: 768px) 250px, 200px"
-                alt="François Duperrey - Chef traiteur au Moulin de la Marigotière"
+                alt="François Duperrey - Chef traiteur à l'Odasiette"
                 className="w-full h-auto object-cover"
                 width={500}
                 height={667}

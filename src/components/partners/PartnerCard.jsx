@@ -7,7 +7,7 @@ export default function PartnerCard({ partner }) {
       <div className="relative">
         <img
           src={partner.image}
-          alt={`${partner.name} - partenaire du Moulin de la Marigotière`}
+          alt={`${partner.name} - partenaire de l'Odasiette`}
           className="w-full h-64 object-cover"
           loading="lazy"
           width={600}

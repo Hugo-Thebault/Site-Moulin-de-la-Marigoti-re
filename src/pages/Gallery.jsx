@@ -263,8 +263,8 @@ export default function Gallery({ openModal }) {
     <>
       <SEO
         title="Galerie - Nos Créations Culinaires"
-        description="Découvrez en images les créations culinaires du Moulin de la Marigotière : entrées raffinées, plats gastronomiques, buffets élégants et pièces dînatoires pour vos événements."
-        keywords="galerie traiteur, photos plats, buffet mariage, cuisine gastronomique, Moulin Marigotière, traiteur Normandie"
+        description="Découvrez en images les créations culinaires de l'Odasiette : entrées raffinées, plats gastronomiques, buffets élégants et pièces dînatoires pour vos événements."
+        keywords="galerie traiteur, photos plats, buffet mariage, cuisine gastronomique, Odasiette, traiteur Normandie"
       />
 
       <main className="min-h-screen bg-base-100">

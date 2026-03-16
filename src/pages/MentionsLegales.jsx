@@ -7,7 +7,7 @@ export default function MentionsLegales() {
     <>
       <SEO
         title="Mentions légales"
-        description="Mentions légales du site Moulin de la Marigotière : éditeur, hébergement, protection des données personnelles et cookies."
+        description="Mentions légales du site L'Odasiette : éditeur, hébergement, protection des données personnelles et cookies."
         keywords="mentions légales, traiteur Thiberville, données personnelles, cookies"
       />
       <main className="bg-base-100">
@@ -22,7 +22,7 @@ export default function MentionsLegales() {
               Éditeur du site
             </h2>
             <p>
-              <strong>Moulin de la Marigotière — Traiteur de Thiberville</strong>
+              <strong>L'Odasiette — Traiteur de Thiberville</strong>
               <br />
               François Duperrey — Maître Restaurateur
               <br />
@@ -217,7 +217,7 @@ export default function MentionsLegales() {
             <p>
               Conception, développement et photographies : Samm Développement
               <br />
-              © {new Date().getFullYear()} Moulin de la Marigotière. Tous
+              © {new Date().getFullYear()} L'Odasiette. Tous
               droits réservés.
             </p>
           </section>

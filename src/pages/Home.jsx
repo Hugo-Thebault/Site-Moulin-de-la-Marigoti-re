@@ -11,7 +11,7 @@ export default function Home({ openModal }) {
   return (
     <>
       <SEO
-        title="Moulin de la Marigotière - Traiteur événementiel Thiberville"
+        title="L'Odasiette - Traiteur événementiel Thiberville"
         description="Traiteur événementiel à Thiberville (Eure) : mariages, réceptions, anniversaires, séminaires. Cuisine de saison, produits locaux. Devis sur mesure."
       />
       <main>

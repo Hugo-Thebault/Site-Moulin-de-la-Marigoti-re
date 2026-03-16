@@ -2,7 +2,7 @@ export default function ContactModal({ isOpen, onClose }) {
   const chefEmail = "contact.moulin.marigotiere@gmail.com";
   const chefPhone = "+33 6 03 90 05 37";
 
-  const mailSubject = "Demande de devis - Moulin de la Marigotière";
+  const mailSubject = "Demande de devis - L'Odasiette";
   const mailBody = [
     "Nom :",
     "Prénom :",

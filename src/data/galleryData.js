@@ -83,7 +83,7 @@ export const galleryImages = [
   {
     id: 8,
     src: plat3,
-    alt: "Plat de saison du Moulin de la Marigotière",
+    alt: "Plat de saison de l'Odasiette",
     category: "plats",
     orientation: "landscape",
   },

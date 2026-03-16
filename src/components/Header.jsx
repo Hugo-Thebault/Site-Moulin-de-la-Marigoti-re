@@ -89,7 +89,7 @@ export default function Header({
                   }`}
                   style={{ fontVariant: "small-caps" }}
                 >
-                  Moulin de la Marigotière
+                  L'Odasiette
                 </span>
                 <span
                   className={`font-cormorant-sc text-xl md:text-2xl ${

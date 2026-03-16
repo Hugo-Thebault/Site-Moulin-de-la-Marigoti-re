@@ -98,7 +98,7 @@ app.post("/api/contact", async (req, res) => {
     } = validation.data;
 
     const toEmail = process.env.CONTACT_TO_EMAIL?.trim();
-    const toName = process.env.CONTACT_TO_NAME?.trim() || "Moulin de la Marigotière";
+    const toName = process.env.CONTACT_TO_NAME?.trim() || "L'Odasiette";
     const fromEmail = process.env.MAIL_FROM_EMAIL?.trim();
     const fromName = process.env.MAIL_FROM_NAME?.trim() || "Site web";
 

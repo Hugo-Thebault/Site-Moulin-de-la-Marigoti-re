@@ -24,7 +24,7 @@ const PartnerCard = memo(({ partner }) => {
     >
       <img
         src={partner.image}
-        alt={`${partner.name} - partenaire du Moulin de la Marigotière`}
+        alt={`${partner.name} - partenaire de l'Odasiette`}
         className="w-full h-64 object-cover"
         loading="lazy"
         decoding="async"
@@ -75,7 +75,7 @@ function PartnersComponent() {
           Nos partenaires
         </h2>
         <p className="text-lg font-inter text-center max-w-3xl mx-auto mb-12 text-base-content">
-          Depuis plusieurs années déjà, le Moulin de la Marigotière travaille
+          Depuis plusieurs années déjà, l'Odasiette travaille
           avec des partenaires locaux aussi bien pour les lieux de réceptions
           que pour les produits.
         </p>

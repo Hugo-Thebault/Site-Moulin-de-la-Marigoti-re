@@ -7,7 +7,7 @@ export default function Welcome() {
     <>
       <SEO
         title="Bienvenue"
-        description="Bienvenue au Moulin de la Marigotière."
+        description="Bienvenue à l'Odasiette."
       />
       <main className="min-h-screen gradient-primary text-white px-6 py-12 flex items-center justify-center">
         <div className="w-full max-w-3xl text-center">
@@ -16,7 +16,7 @@ export default function Welcome() {
           </div>
 
           <h1 className="font-cormorant-sc text-5xl md:text-7xl mb-6">
-            Bienvenue au Moulin de la Marigotière
+            Bienvenue à L'Odasiette
           </h1>
           <p className="font-inter text-lg md:text-xl text-white/90 mb-10">
             Traiteur de Thiberville — François Duperrey

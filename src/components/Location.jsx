@@ -12,7 +12,7 @@ export default function Location() {
   const galleryImages = [
     {
       src: localisationImage,
-      alt: "Plan d'accès - Moulin de la Marigotière",
+      alt: "Plan d'accès - L'Odasiette",
     },
   ];
 
@@ -137,7 +137,7 @@ export default function Location() {
           >
             <img
               src={localisationImage}
-              alt="Plan d'accès - Moulin de la Marigotière"
+              alt="Plan d'accès - L'Odasiette"
               className="w-full h-full object-cover"
               loading="lazy"
               width={600}

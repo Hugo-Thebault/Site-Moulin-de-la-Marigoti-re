@@ -5,16 +5,16 @@ import defaultOgImage from "../assets/images/Logo.sm.webp";
  * Composant SEO pour gérer les meta tags
  */
 export default function SEO({
-  title = "Moulin de la Marigotière - Traiteur Thiberville",
+  title = "L'Odasiette - Traiteur Thiberville",
   description = "Traiteur événementiel à Thiberville. François Duperrey, maître restaurateur, vous propose des menus raffinés pour mariages, réceptions, séminaires. Produits locaux et cuisine de saison.",
   keywords = "traiteur, Thiberville, mariage, réception, François Duperrey, maître restaurateur, Eure, Normandie, buffet, cocktail, séminaire",
   image,
   url,
   noindex = false,
 }) {
-  const fullTitle = title.includes("Moulin")
+  const fullTitle = title.includes("Odasiette")
     ? title
-    : `${title} | Moulin de la Marigotière`;
+    : `${title} | L'Odasiette`;
 
   const siteUrl = import.meta.env.VITE_SITE_URL;
 
@@ -48,7 +48,7 @@ export default function SEO({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    name: "Moulin de la Marigotière - Traiteur de Thiberville",
+    name: "L'Odasiette - Traiteur de Thiberville",
     image: absoluteImage,
     "@id": canonicalUrl,
     url: canonicalUrl,

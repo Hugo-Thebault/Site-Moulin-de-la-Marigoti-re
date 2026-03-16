@@ -1,4 +1,4 @@
-# robots.txt pour Moulin de la Marigotière - Traiteur Thiberville
+# robots.txt pour L'Odasiette - Traiteur Thiberville
 
 User-agent: *
 Allow: /

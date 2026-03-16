@@ -4,7 +4,7 @@ export default function Logo({ className = "h-12" }) {
   return (
     <img
       src={logoImage}
-      alt="Logo Moulin de la Marigotière - Traiteur"
+      alt="Logo L'Odasiette - Traiteur"
       className={className}
       width={128}
       height={117}
