@@ -18,7 +18,7 @@ export default function NotFound() {
             Oups ! Cette page n'existe pas.
           </p>
           <Link
-            to="/"
+            to="/accueil"
             className="inline-block gradient-primary text-white px-8 py-3 rounded font-medium hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
             Retour à l'accueil

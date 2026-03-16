@@ -100,22 +100,27 @@ export default function MenuReception({ openModal }) {
                 <PricePill>1,20€ pièce</PricePill>
               </div>
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
-                <p>• Soufflé d'églefin au cresson</p>
-                <p>• Vol au vent andouille de Vire, pomme</p>
-                <p>• Blinis quenelle de rillette de poisson</p>
-                <p>• Sablé parmesan, pavot, beurre de betterave</p>
-                <p>• Gougère escargot en persillade</p>
-                <p>• Nem croustillant confit de canard</p>
-                <p>• Croustille de truite de mer au curcuma</p>
-                <p>• Burger boeuf confit, Pont-l'Evêque</p>
-                <p>• Rognon de lapin, sauce moutarde violette</p>
-                <p>• Tartelette courgette, curry</p>
-                <p>• Feuilleté oignon, chutney boudin blanc</p>
-                <p>• Cuiller saumon Gravlax, crème coriandre</p>
-                <p>• Cake boudin noir, crème de sésame</p>
-                <p>• Paupiette de cabillaud, crème de pesto</p>
-                <p>• Acra de morue, épices douces</p>
-                <p>• Duo de volaille et chorizo</p>
+                <p>• Tataki de boeuf</p>
+                <p>• Tataki thon sésame</p>
+                <p>• Saumon gravlax coriandre</p>
+                <p>• Thon gravlax pesto</p>
+                <p>• Vol au vent champignons volaille</p>
+                <p>• Mini croque serrano conté</p>
+                <p>• Sablé parmesan beurre betterave</p>
+                <p>• Blinis courgette saumon</p>
+                <p>• Blinis courgette cabillaud tandori</p>
+                <p>• Feuilleté andouille pomme livarot</p>
+                <p>• Choux escargots en persillade</p>
+                <p>• Nem croustillant confit canard</p>
+                <p>• Burger boeuf fromage normand</p>
+                <p>• Tartelette courgette curcuma</p>
+                <p>• Soufflé églefin au cresson</p>
+                <p>• Accras morue</p>
+                <p>• Brochette volaille chorizo</p>
+                <p>• Beignet de haddock</p>
+                <p>• Muffin boudin noir</p>
+                <p>• Tarte fine boudin blanc oignons</p>
+                <p>• Paupiette cabillaud lardé</p>
               </div>
             </Card>
           </div>

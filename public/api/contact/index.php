@@ -120,29 +120,66 @@ $textBody = "NOUVELLE DEMANDE DE DEVIS\n"
     . ($address ? "Adresse : $address\n" : "")
     . "\nMessage :\n$message\n";
 
+$clientHtmlBody = "
+<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;\">
+    <h2 style=\"color:#9B1227;\">Copie de votre demande</h2>
+    <p>Bonjour $safeName,</p>
+    <p>Nous avons bien reçu votre demande de devis. Voici la copie de votre message :</p>
+    <div style=\"background:#f8f8f8; border:1px solid #e5e5e5; padding:16px; border-radius:8px;\">
+        <p style=\"margin:0 0 8px;\"><strong>Nom :</strong> $safeName</p>
+        <p style=\"margin:0 0 8px;\"><strong>Email :</strong> $safeEmail</p>
+        <p style=\"margin:0 0 8px;\"><strong>Téléphone :</strong> $safePhone</p>
+        " . ($address ? "<p style=\"margin:0 0 8px;\"><strong>Adresse :</strong> $safeAddress</p>" : "") . "
+        <p style=\"margin:0; white-space:pre-wrap;\"><strong>Message :</strong>\n$safeMessage</p>
+    </div>
+    <p style=\"margin-top:16px;\">Nous reviendrons vers vous dès que possible.</p>
+    <p>Cordialement,<br/>Moulin de la Marigotière</p>
+</div>";
+
+$clientTextBody = "COPIE DE VOTRE DEMANDE\n"
+        . "=====================\n\n"
+        . "Bonjour $name,\n\n"
+        . "Nous avons bien reçu votre demande de devis.\n\n"
+        . "Nom : $name\n"
+        . "Email : $email\n"
+        . "Téléphone : $phone\n"
+        . ($address ? "Adresse : $address\n" : "")
+        . "\nMessage :\n$message\n";
+
 // ─── Envoi via Mailjet API v3.1 ──────────────────────────────────────────────
 $payload = json_encode([
-    'Messages' => [[
-        'From' => [
-            'Email' => $config['FROM_EMAIL'],
-            'Name'  => $config['FROM_NAME'],
+    'Messages' => [
+        [
+            'From' => [
+                'Email' => $config['FROM_EMAIL'],
+                'Name'  => $config['FROM_NAME'],
+            ],
+            'To' => [[
+                'Email' => $config['TO_EMAIL'],
+                'Name'  => $config['TO_NAME'],
+            ]],
+            'ReplyTo' => [
+                'Email' => $email,
+                'Name'  => $name,
+            ],
+            'Subject'  => "Demande de devis — $name",
+            'TextPart' => $textBody,
+            'HTMLPart' => $htmlBody,
         ],
-        'To' => [[
-            'Email' => $config['TO_EMAIL'],
-            'Name'  => $config['TO_NAME'],
-        ]],
-        'Cc' => [[
-            'Email' => $email,
-            'Name'  => $name,
-        ]],
-        'ReplyTo' => [
-            'Email' => $email,
-            'Name'  => $name,
+        [
+            'From' => [
+                'Email' => $config['FROM_EMAIL'],
+                'Name'  => $config['FROM_NAME'],
+            ],
+            'To' => [[
+                'Email' => $email,
+                'Name'  => $name,
+            ]],
+            'Subject'  => "Copie de votre demande — Moulin de la Marigotière",
+            'TextPart' => $clientTextBody,
+            'HTMLPart' => $clientHtmlBody,
         ],
-        'Subject'  => "Demande de devis — $name",
-        'TextPart' => $textBody,
-        'HTMLPart' => $htmlBody,
-    ]],
+    ],
 ]);
 
 $ch = curl_init('https://api.mailjet.com/v3.1/send');

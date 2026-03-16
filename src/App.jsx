@@ -23,6 +23,7 @@ const Menu39 = lazy(() => import("./pages/Menu39"));
 const Partners = lazy(() => import("./pages/Partners"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
+const Welcome = lazy(() => import("./pages/Welcome"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Loading fallback
@@ -53,20 +54,24 @@ function AppContent() {
   }, [location.pathname]);
 
   const isMenuPage = location.pathname.startsWith("/menus/");
+  const isLandingPage = location.pathname === "/";
 
   return (
     <div className={`min-h-screen ${darkMode ? "dark" : ""}`}>
       <GoogleAnalytics />
       <CookieBanner />
-      <Header
-        toggleDarkMode={toggleDarkMode}
-        darkMode={darkMode}
-        openModal={openModal}
-        whiteHeader={isMenuPage}
-      />
+      {!isLandingPage ? (
+        <Header
+          toggleDarkMode={toggleDarkMode}
+          darkMode={darkMode}
+          openModal={openModal}
+          whiteHeader={isMenuPage}
+        />
+      ) : null}
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
-          <Route path="/" element={<Home openModal={openModal} />} />
+          <Route path="/" element={<Welcome />} />
+          <Route path="/accueil" element={<Home openModal={openModal} />} />
           <Route
             path="/menus/reception"
             element={<MenuReception openModal={openModal} />}
@@ -93,8 +98,10 @@ function AppContent() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
-      <Footer />
-      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+      {!isLandingPage ? <Footer /> : null}
+      {!isLandingPage ? (
+        <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+      ) : null}
     </div>
   );
 }

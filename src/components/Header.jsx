@@ -56,7 +56,7 @@ export default function Header({
 
               {/* Icône maison - retour à l'accueil */}
               <Link
-                to="/"
+                to="/accueil"
                 className={`p-1 md:p-2 rounded transition ${
                   whiteHeader ? "hover:bg-base-200" : "hover:bg-white/10"
                 }`}
@@ -100,7 +100,7 @@ export default function Header({
                   François Duperrey
                 </span>
               </div>
-              <Link to="/" className="flex items-center">
+              <Link to="/accueil" className="flex items-center">
                 {whiteHeader ? (
                   <div className="bg-white rounded-full w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 shadow-lg flex items-center justify-center overflow-hidden border-2 border-base-300">
                     <Logo className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain" />
@@ -216,7 +216,7 @@ export default function Header({
               <nav className="space-y-4">
                 {/* Accueil */}
                 <Link
-                  to="/"
+                  to="/accueil"
                   onClick={closeMenu}
                   className="block font-cormorant-infant text-xl py-2 hover:text-gray-200 transition"
                 >

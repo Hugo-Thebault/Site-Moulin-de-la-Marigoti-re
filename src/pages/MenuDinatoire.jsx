@@ -143,22 +143,27 @@ export default function MenuDinatoire({ openModal }) {
                     10 amuses-bouches au choix
                   </p>
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
-                    <p>• Soufflé d'églefin au cresson</p>
-                    <p>• Vol au vent andouille de Vire, pomme</p>
-                    <p>• Blinis quenelle de rillette de poisson</p>
-                    <p>• Sablé parmesan, pavot, beurre de betterave</p>
-                    <p>• Gougère escargot en persillade</p>
-                    <p>• Nem croustillant confit de canard</p>
-                    <p>• Croustille de truite de mer au curcuma</p>
-                    <p>• Burger boeuf confit, Pont-l'Evêque</p>
-                    <p>• Rognon de lapin, sauce moutarde violette</p>
-                    <p>• Tartelette courgette, curry</p>
-                    <p>• Feuilleté oignon, chutney boudin blanc</p>
-                    <p>• Cuiller saumon Gravlax, crème coriandre</p>
-                    <p>• Cake boudin noir, crème de sésame</p>
-                    <p>• Paupiette de cabillaud, crème de pesto</p>
-                    <p>• Acra de morue, épices douces</p>
-                    <p>• Duo de volaille et chorizo</p>
+                    <p>• Tataki de boeuf</p>
+                    <p>• Tataki thon sésame</p>
+                    <p>• Saumon gravlax coriandre</p>
+                    <p>• Thon gravlax pesto</p>
+                    <p>• Vol au vent champignons volaille</p>
+                    <p>• Mini croque serrano conté</p>
+                    <p>• Sablé parmesan beurre betterave</p>
+                    <p>• Blinis courgette saumon</p>
+                    <p>• Blinis courgette cabillaud tandori</p>
+                    <p>• Feuilleté andouille pomme livarot</p>
+                    <p>• Choux escargots en persillade</p>
+                    <p>• Nem croustillant confit canard</p>
+                    <p>• Burger boeuf fromage normand</p>
+                    <p>• Tartelette courgette curcuma</p>
+                    <p>• Soufflé églefin au cresson</p>
+                    <p>• Accras morue</p>
+                    <p>• Brochette volaille chorizo</p>
+                    <p>• Beignet de haddock</p>
+                    <p>• Muffin boudin noir</p>
+                    <p>• Tarte fine boudin blanc oignons</p>
+                    <p>• Paupiette cabillaud lardé</p>
                   </div>
                 </Card>
               </div>
@@ -283,6 +288,40 @@ export default function MenuDinatoire({ openModal }) {
                     8 amuses-bouches au choix
                   </p>
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
+                    <p>• Tataki de boeuf</p>
+                    <p>• Tataki thon sésame</p>
+                    <p>• Saumon gravlax coriandre</p>
+                    <p>• Thon gravlax pesto</p>
+                    <p>• Vol au vent champignons volaille</p>
+                    <p>• Mini croque serrano conté</p>
+                    <p>• Sablé parmesan beurre betterave</p>
+                    <p>• Blinis courgette saumon</p>
+                    <p>• Blinis courgette cabillaud tandori</p>
+                    <p>• Feuilleté andouille pomme livarot</p>
+                    <p>• Choux escargots en persillade</p>
+                    <p>• Nem croustillant confit canard</p>
+                    <p>• Burger boeuf fromage normand</p>
+                    <p>• Tartelette courgette curcuma</p>
+                    <p>• Soufflé églefin au cresson</p>
+                    <p>• Accras morue</p>
+                    <p>• Brochette volaille chorizo</p>
+                    <p>• Beignet de haddock</p>
+                    <p>• Muffin boudin noir</p>
+                    <p>• Tarte fine boudin blanc oignons</p>
+                    <p>• Paupiette cabillaud lardé</p>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Dînatoire L'Audace */}
+              <div className="max-w-5xl mx-auto mb-10">
+                <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                    <SectionTitle color="primary" centered={false} className="mb-0">
+                      Dînatoire
+                    </SectionTitle>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
                     <p>• Tartine jambon serrano conté roquette</p>
                     <p>• Broche foie gras confiture de saison</p>
                     <p>• Verinne de tourteaux petits légumes</p>
@@ -330,6 +369,41 @@ export default function MenuDinatoire({ openModal }) {
                 <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
                   <SectionTitle color="primary" centered={false} className="mb-6">
                     Amuses-bouches
+                  </SectionTitle>
+                  <p className="font-inter text-sm text-base-content/70 mb-4">
+                    6 amuses-bouches au choix
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
+                    <p>• Tataki de boeuf</p>
+                    <p>• Tataki thon sésame</p>
+                    <p>• Saumon gravlax coriandre</p>
+                    <p>• Thon gravlax pesto</p>
+                    <p>• Vol au vent champignons volaille</p>
+                    <p>• Mini croque serrano conté</p>
+                    <p>• Sablé parmesan beurre betterave</p>
+                    <p>• Blinis courgette saumon</p>
+                    <p>• Blinis courgette cabillaud tandori</p>
+                    <p>• Feuilleté andouille pomme livarot</p>
+                    <p>• Choux escargots en persillade</p>
+                    <p>• Nem croustillant confit canard</p>
+                    <p>• Burger boeuf fromage normand</p>
+                    <p>• Tartelette courgette curcuma</p>
+                    <p>• Soufflé églefin au cresson</p>
+                    <p>• Accras morue</p>
+                    <p>• Brochette volaille chorizo</p>
+                    <p>• Beignet de haddock</p>
+                    <p>• Muffin boudin noir</p>
+                    <p>• Tarte fine boudin blanc oignons</p>
+                    <p>• Paupiette cabillaud lardé</p>
+                  </div>
+                </Card>
+              </div>
+
+              {/* Dînatoire Classique */}
+              <div className="max-w-5xl mx-auto mb-10">
+                <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
+                  <SectionTitle color="primary" centered={false} className="mb-6">
+                    Dînatoire
                   </SectionTitle>
                   <div className="font-inter text-base md:text-lg space-y-2 text-base-content">
                     <p>• Tataki boeuf</p>
