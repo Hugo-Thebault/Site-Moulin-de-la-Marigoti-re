@@ -364,40 +364,7 @@ export default function MenuDinatoire({ openModal }) {
                 </div>
               </div>
 
-              {/* Amuses-bouches Classique */}
-              <div className="max-w-5xl mx-auto mb-10">
-                <Card className="bg-base-100 border border-base-300 shadow-xl" padding="p-6 md:p-8">
-                  <SectionTitle color="primary" centered={false} className="mb-6">
-                    Amuses-bouches
-                  </SectionTitle>
-                  <p className="font-inter text-sm text-base-content/70 mb-4">
-                    6 amuses-bouches au choix
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 font-inter text-base md:text-lg text-base-content">
-                    <p>• Tataki de boeuf</p>
-                    <p>• Tataki thon sésame</p>
-                    <p>• Saumon gravlax coriandre</p>
-                    <p>• Thon gravlax pesto</p>
-                    <p>• Vol au vent champignons volaille</p>
-                    <p>• Mini croque serrano conté</p>
-                    <p>• Sablé parmesan beurre betterave</p>
-                    <p>• Blinis courgette saumon</p>
-                    <p>• Blinis courgette cabillaud tandori</p>
-                    <p>• Feuilleté andouille pomme livarot</p>
-                    <p>• Choux escargots en persillade</p>
-                    <p>• Nem croustillant confit canard</p>
-                    <p>• Burger boeuf fromage normand</p>
-                    <p>• Tartelette courgette curcuma</p>
-                    <p>• Soufflé églefin au cresson</p>
-                    <p>• Accras morue</p>
-                    <p>• Brochette volaille chorizo</p>
-                    <p>• Beignet de haddock</p>
-                    <p>• Muffin boudin noir</p>
-                    <p>• Tarte fine boudin blanc oignons</p>
-                    <p>• Paupiette cabillaud lardé</p>
-                  </div>
-                </Card>
-              </div>
+              {/* Amuses-bouches Classique - supprimé pour la Formule Classique (30€) */}
 
               {/* Dînatoire Classique */}
               <div className="max-w-5xl mx-auto mb-10">
