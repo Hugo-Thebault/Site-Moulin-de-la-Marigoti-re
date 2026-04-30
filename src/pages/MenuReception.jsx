@@ -84,7 +84,7 @@ export default function MenuReception({ openModal }) {
                 <div className="flex flex-wrap gap-2 md:justify-end">
                   <PricePill>Amuses-bouches : 1,20€</PricePill>
                   <PricePill>Sorbets : 1,50€</PricePill>
-                  <PricePill>Desserts : 7,20€</PricePill>
+                  <PricePill>4 desserts : 7,20€</PricePill>
                 </div>
               </div>
             </Card>
@@ -454,7 +454,7 @@ export default function MenuReception({ openModal }) {
                 <SectionTitle color="primary" centered={false} className="mb-0">
                   Les desserts
                 </SectionTitle>
-                <PricePill>7,20 € pièce</PricePill>
+                <PricePill>4 desserts : 7,20 €</PricePill>
               </div>
               <p className="font-inter text-sm text-base-content/70 mb-4">
                 Composez votre assiette de quatre desserts au choix

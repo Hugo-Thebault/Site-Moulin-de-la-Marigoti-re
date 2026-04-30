@@ -2,19 +2,6 @@ export default function ContactModal({ isOpen, onClose }) {
   const chefEmail = "contact.moulin.marigotiere@gmail.com";
   const chefPhone = "+33 6 03 90 05 37";
 
-  const mailSubject = "Demande de devis - Moulin de la Marigotière";
-  const mailBody = [
-    "Nom :",
-    "Prénom :",
-    "",
-    "Description de votre demande :",
-    "",
-  ].join("\n");
-
-  const mailtoHref = `mailto:${chefEmail}?subject=${encodeURIComponent(
-    mailSubject
-  )}&body=${encodeURIComponent(mailBody)}`;
-
   if (!isOpen) return null;
 
   return (
@@ -80,7 +67,7 @@ export default function ContactModal({ isOpen, onClose }) {
           </div>
 
           <a
-            href={mailtoHref}
+            href={`mailto:${chefEmail}`}
             className="block w-full text-center gradient-primary text-white px-6 py-3 rounded font-medium hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
             Ouvrir mon application mail
